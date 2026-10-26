@@ -1,0 +1,4 @@
+/* PARTE 3 · Problema */
+.tarjeta__icono { display: block; width: 48px; height: 48px; border-radius: 50%; background: #f29bab; margin-bottom: 12px; }
+.problema .tarjeta:nth-child(2) .tarjeta__icono { background: #c9aeeb; }
+.problema .tarjeta:nth-child(3) .tarjeta__icono { background: #ffd978; }

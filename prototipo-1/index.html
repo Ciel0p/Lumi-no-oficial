@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lumi: la app que une el seguimiento de tu ciclo menstrual con tu agenda diaria.">
+  <title>Lumi – Tu ciclo, tu tiempo, en un solo lugar</title>
+
+  <link rel="icon" type="image/svg+xml" href="assets/img/logo-icono.svg">
+
+  <!-- Tipografías del Style Guide (Figma): Delius y Libre Baskerville para el logo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Delius&family=Libre+Baskerville&display=swap" rel="stylesheet">
+
+  <!-- Estilos generales (colores, tipografía, botones, tarjetas) -->
+  <link rel="stylesheet" href="css/base.css">
+
+  <!-- Un archivo CSS por sección, así cada parte se trabaja sin pisar a las demás -->
+  <link rel="stylesheet" href="css/secciones/header.css">
+  <link rel="stylesheet" href="css/secciones/hero.css">
+  <link rel="stylesheet" href="css/secciones/problema.css">
+  <link rel="stylesheet" href="css/secciones/funcionalidades.css">
+  <link rel="stylesheet" href="css/secciones/como-funciona.css">
+  <link rel="stylesheet" href="css/secciones/para-quien.css">
+  <link rel="stylesheet" href="css/secciones/planes.css">
+  <link rel="stylesheet" href="css/secciones/testimonios.css">
+  <link rel="stylesheet" href="css/secciones/equipo.css">
+  <link rel="stylesheet" href="css/secciones/faq.css">
+  <link rel="stylesheet" href="css/secciones/footer.css">
+</head>
+
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <!-- =====================================================
+       PARTE 1 · HEADER Y NAVEGACIÓN
+       Archivos: css/secciones/header.css · js/menu.js
+       ===================================================== -->
+  <header class="header">
+    <div class="contenedor header__barra">
+      <a class="logo" href="#inicio" aria-label="Lumi, ir al inicio">
+        <img src="assets/img/logo-icono.svg" alt="" width="44" height="44">
+        <span class="logo__texto">LUMI</span>
+      </a>
+
+      <button class="header__menu-btn" type="button" aria-expanded="false" aria-controls="menu-principal">
+        <span class="visualmente-oculto">Abrir menú</span>
+        <span class="header__menu-icono" aria-hidden="true"></span>
+      </button>
+
+      <nav class="header__nav" id="menu-principal" aria-label="Menú principal">
+        <ul class="header__lista">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#funciones">Funciones</a></li>
+          <li><a href="#como-funciona">Cómo funciona</a></li>
+          <li><a href="#planes">Planes</a></li>
+          <li><a href="#testimonios">Testimonios</a></li>
+          <li><a href="#equipo">Nosotros</a></li>
+          <li><a href="#preguntas">Preguntas</a></li>
+        </ul>
+        <a class="boton boton--primario" href="#descargar">Descargar Lumi</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+
+    <!-- =====================================================
+         PARTE 2 · HERO (presentación principal)
+         Archivo: css/secciones/hero.css
+         ===================================================== -->
+    <section class="hero" id="inicio" aria-labelledby="hero-titulo">
+      <div class="contenedor hero__grid">
+        <div class="hero__texto">
+          <p class="etiqueta">Salud femenina y productividad</p>
+          <h1 id="hero-titulo">Tu ciclo, tu tiempo, en un solo lugar</h1>
+          <p class="hero__descripcion">
+            Lumi une el seguimiento de tu ciclo menstrual con tus clases, reuniones y tareas del hogar
+            para que planifiques cada semana según tu energía real.
+          </p>
+          <div class="hero__tiendas" id="descargar">
+            <a class="boton boton--oscuro" href="#" aria-label="Descargar Lumi en App Store">App Store</a>
+            <a class="boton boton--oscuro" href="#" aria-label="Descargar Lumi en Google Play">Google Play</a>
+          </div>
+        </div>
+
+        <!-- Mock-up simple del teléfono (en el prototipo 2 se puede reemplazar por una captura real de la app) -->
+        <div class="telefono" role="img" aria-label="Vista previa de la pantalla de inicio de Lumi">
+          <p class="telefono__saludo">Hola, Sofía</p>
+          <div class="telefono__bloque telefono__bloque--lila">
+            <span>Fase folicular · Día 9</span>
+            <strong>Energía alta</strong>
+          </div>
+          <div class="telefono__bloque telefono__bloque--rosa">
+            <span>Hoy</span>
+            <strong>Clase de Cálculo · 8:00</strong>
+            <strong>Entrega de informe · 18:00</strong>
+          </div>
+          <div class="telefono__bloque telefono__bloque--amarillo">
+            <span>Tu periodo llegaría en 19 días</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         PARTE 3 · PROBLEMA
+         Archivo: css/secciones/problema.css
+         ===================================================== -->
+    <section class="seccion problema" id="problema" aria-labelledby="problema-titulo">
+      <div class="contenedor">
+        <h2 class="seccion__titulo" id="problema-titulo">¿Te pasa que tu periodo llega justo el día de tu examen?</h2>
+        <p class="seccion__subtitulo">
+          Lo que encontramos en nuestras entrevistas con universitarias, profesionales y madres de familia:
+        </p>
+        <div class="grid-3">
+          <article class="tarjeta">
+            <span class="tarjeta__icono" aria-hidden="true"></span>
+            <h3>Apps separadas</h3>
+            <p>Usan una app para el ciclo y otra para su agenda, y ninguna se comunica.</p>
+          </article>
+          <article class="tarjeta">
+            <span class="tarjeta__icono" aria-hidden="true"></span>
+            <h3>Imprevistos</h3>
+            <p>Los cólicos o la baja energía llegan el día de una actividad importante.</p>
+          </article>
+          <article class="tarjeta">
+            <span class="tarjeta__icono" aria-hidden="true"></span>
+            <h3>Carga mental</h3>
+            <p>Recordar fechas y reorganizar todo genera estrés y baja productividad.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         PARTE 3 · FUNCIONALIDADES
+         Archivo: css/secciones/funcionalidades.css
+         ===================================================== -->
+    <section class="seccion seccion--blanca funciones" id="funciones" aria-labelledby="funciones-titulo">
+      <div class="contenedor">
+        <h2 class="seccion__titulo" id="funciones-titulo">Todo lo que necesitas, en una sola app</h2>
+        <div class="grid-2">
+          <article class="tarjeta tarjeta--rosa">
+            <h3>Calendario unificado</h3>
+            <p>Tu periodo estimado junto a tus clases, reuniones y tareas.</p>
+          </article>
+          <article class="tarjeta tarjeta--lila">
+            <h3>Alertas predictivas</h3>
+            <p>Te avisamos cuando una actividad importante coincide con días de baja energía.</p>
+          </article>
+          <article class="tarjeta tarjeta--amarilla">
+            <h3>Reprogramación inteligente</h3>
+            <p>Lumi te sugiere mejores fechas para tus actividades críticas.</p>
+          </article>
+          <article class="tarjeta tarjeta--rosa">
+            <h3>Privacidad total</h3>
+            <p>Bloqueo con PIN o huella, modo discreto y control de tus datos.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         PARTE 4 · CÓMO FUNCIONA
+         Archivo: css/secciones/como-funciona.css
+         ===================================================== -->
+    <section class="seccion como" id="como-funciona" aria-labelledby="como-titulo">
+      <div class="contenedor">
+        <h2 class="seccion__titulo" id="como-titulo">Cómo funciona</h2>
+        <ol class="grid-3 como__pasos">
+          <li class="tarjeta">
+            <span class="como__numero" aria-hidden="true">1</span>
+            <h3>Registra tu ciclo</h3>
+            <p>Ingresa la fecha de tu último periodo y la duración de tu ciclo.</p>
+          </li>
+          <li class="tarjeta">
+            <span class="como__numero" aria-hidden="true">2</span>
+            <h3>Conecta tu agenda</h3>
+            <p>Sincroniza Google Calendar u Outlook, o importa tu horario.</p>
+          </li>
+          <li class="tarjeta">
+            <span class="como__numero" aria-hidden="true">3</span>
+            <h3>Recibe recomendaciones</h3>
+            <p>Lumi te avisa y te ayuda a planificar según tu energía.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         PARTE 4 · PARA QUIÉN ES (segmentos objetivo)
+         Archivo: css/secciones/para-quien.css
+         ===================================================== -->
+    <section class="seccion seccion--rosada para-quien" id="para-quien" aria-labelledby="para-quien-titulo">
+      <div class="contenedor">
+        <h2 class="seccion__titulo" id="para-quien-titulo">Pensada para ti</h2>
+        <div class="grid-3">
+          <article class="tarjeta">
+            <!-- TODO prototipo 2: reemplazar el recuadro por una imagen del segmento -->
+            <div class="para-quien__imagen" aria-hidden="true"></div>
+            <h3>Universitarias</h3>
+            <p>Organiza exámenes y entregas según tu ciclo.</p>
+          </article>
+          <article class="tarjeta">
+            <div class="para-quien__imagen" aria-hidden="true"></div>
+            <h3>Profesionales</h3>
+            <p>Planifica reuniones críticas en tus días de más energía.</p>
+          </article>
+          <article class="tarjeta">
+            <div class="para-quien__imagen" aria-hidden="true"></div>
+            <h3>Madres de familia</h3>
+            <p>Coordina el hogar, las citas de tus hijos y tu bienestar.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         PARTE 5 · PLANES
+         Archivo: css/secciones/planes.css
+         ===================================================== -->
+    <section class="seccion planes" id="planes" aria-labelledby="planes-titulo">
+      <div class="contenedor">
+        <h2 class="seccion__titulo" id="planes-titulo">Elige tu plan</h2>
+        <div class="grid-2">
+          <article class="tarjeta plan">
+            <h3 class="plan__nombre">Free</h3>
+            <p class="plan__precio">S/ 0</p>
+            <ul class="plan__lista">
+              <li>Calendario unificado</li>
+              <li>Registro de ciclo y síntomas</li>
+              <li>Recordatorios básicos</li>
+            </ul>
+            <a class="boton boton--borde" href="#descargar">Empezar gratis</a>
+          </article>
+          <article class="tarjeta tarjeta--rosa plan plan--destacado">
+            <h3 class="plan__nombre">Premium</h3>
+            <p class="plan__precio">S/ 9.90 <span>/ mes</span></p>
+            <ul class="plan__lista">
+              <li>Todo lo de Free</li>
+              <li>Alertas predictivas y reprogramación</li>
+              <li>Reportes de patrones</li>
+              <li>Sin anuncios</li>
+            </ul>
+            <a class="boton boton--primario" href="#descargar">Probar Premium</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         PARTE 6 · TESTIMONIOS Y VIDEO ABOUT-THE-PRODUCT
+         Archivo: css/secciones/testimonios.css
+         ===================================================== -->
+    <section class="seccion seccion--blanca testimonios" id="testimonios" aria-labelledby="testimonios-titulo">
+      <div class="contenedor">
+        <h2 class="seccion__titulo" id="testimonios-titulo">Lo que dicen nuestras usuarias</h2>
+
+        <figure class="video">
+          <!-- TODO: reemplazar este recuadro por el iframe de YouTube del video About-the-Product -->
+          <div class="video__marco">
+            <span class="video__play" aria-hidden="true"></span>
+            <span class="visualmente-oculto">Espacio para el video About-the-Product</span>
+          </div>
+          <figcaption>Video About-the-Product</figcaption>
+        </figure>
+
+        <div class="grid-3">
+          <!-- TODO: reemplazar por frases reales de las entrevistas de validación -->
+          <blockquote class="tarjeta testimonio">
+            <p>“Testimonio de una usuaria del segmento universitarias.”</p>
+            <footer>Universitaria</footer>
+          </blockquote>
+          <blockquote class="tarjeta testimonio">
+            <p>“Testimonio de una usuaria del segmento profesionales.”</p>
+            <footer>Profesional</footer>
+          </blockquote>
+          <blockquote class="tarjeta testimonio">
+            <p>“Testimonio de una usuaria del segmento madres de familia.”</p>
+            <footer>Madre de familia</footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         PARTE 7 · NOSOTROS (EQUIPO 6BITS Y VIDEO ABOUT-THE-TEAM)
+         Archivo: css/secciones/equipo.css
+         ===================================================== -->
+    <section class="seccion equipo" id="equipo" aria-labelledby="equipo-titulo">
+      <div class="contenedor">
+        <h2 class="seccion__titulo" id="equipo-titulo">Somos 6Bits</h2>
+        <p class="seccion__subtitulo">
+          Un equipo de estudiantes de Ingeniería de Software de la UPC que quiere que ninguna mujer
+          tenga que elegir entre su salud y sus metas.
+        </p>
+
+        <div class="equipo__grid">
+          <div class="equipo__texto">
+            <h3>Misión</h3>
+            <p>Ayudar a las mujeres a organizar su vida diaria tomando en cuenta su ciclo menstrual.</p>
+            <h3>Visión</h3>
+            <p>Ser la app de referencia en Latinoamérica que une salud femenina y productividad.</p>
+          </div>
+          <figure class="video">
+            <!-- TODO: reemplazar este recuadro por el iframe de YouTube del video About-the-Team -->
+            <div class="video__marco video__marco--chico">
+              <span class="video__play" aria-hidden="true"></span>
+              <span class="visualmente-oculto">Espacio para el video About-the-Team</span>
+            </div>
+            <figcaption>Video About-the-Team</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         PARTE 7 · PREGUNTAS FRECUENTES
+         Archivos: css/secciones/faq.css · js/faq.js
+         ===================================================== -->
+    <section class="seccion faq" id="preguntas" aria-labelledby="faq-titulo">
+      <div class="contenedor">
+        <h2 class="seccion__titulo" id="faq-titulo">Preguntas frecuentes</h2>
+
+        <div class="faq__item">
+          <h3>
+            <button class="faq__pregunta" type="button" aria-expanded="true" aria-controls="faq-1">
+              ¿Mis datos de salud están seguros?
+            </button>
+          </h3>
+          <div class="faq__respuesta" id="faq-1">
+            <p>Sí. Tus datos se guardan cifrados, puedes proteger la app con PIN o huella y eliminar tu cuenta cuando quieras.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <h3>
+            <button class="faq__pregunta" type="button" aria-expanded="false" aria-controls="faq-2">
+              ¿Puedo conectar mi calendario de la universidad?
+            </button>
+          </h3>
+          <div class="faq__respuesta" id="faq-2" hidden>
+            <p>Sí. Puedes sincronizar Google Calendar u Outlook, o importar tu horario de clases.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <h3>
+            <button class="faq__pregunta" type="button" aria-expanded="false" aria-controls="faq-3">
+              ¿Lumi reemplaza a un médico?
+            </button>
+          </h3>
+          <div class="faq__respuesta" id="faq-3" hidden>
+            <p>No. Lumi te ayuda a organizarte, pero no da diagnósticos. Ante cualquier molestia, consulta a un profesional de salud.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =====================================================
+       PARTE 1 · FOOTER
+       Archivo: css/secciones/footer.css
+       ===================================================== -->
+  <footer class="footer">
+    <div class="contenedor">
+      <div class="footer__grid">
+        <div>
+          <a class="logo" href="#inicio" aria-label="Lumi, ir al inicio">
+            <img src="assets/img/logo-icono.svg" alt="" width="36" height="36">
+            <span class="logo__texto logo__texto--chico">LUMI</span>
+          </a>
+          <p>Tu ciclo, tu tiempo, en un solo lugar.</p>
+        </div>
+        <nav aria-label="Producto">
+          <h2 class="footer__titulo">Producto</h2>
+          <ul>
+            <li><a href="#funciones">Funciones</a></li>
+            <li><a href="#planes">Planes</a></li>
+            <li><a href="#descargar">Descargar</a></li>
+          </ul>
+        </nav>
+        <nav aria-label="Legal">
+          <h2 class="footer__titulo">Legal</h2>
+          <ul>
+            <li><a href="#">Privacidad</a></li>
+            <li><a href="#">Términos</a></li>
+            <li><a href="#">Cookies</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h2 class="footer__titulo">Contacto</h2>
+          <ul>
+            <li><a href="mailto:hola@lumi.pe">hola@lumi.pe</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">TikTok</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer__copy">© 2026 6Bits · Lumi. Proyecto académico UPC – IHC y Tecnologías Móviles.</p>
+    </div>
+  </footer>
+
+  <script src="js/menu.js"></script>
+  <script src="js/faq.js"></script>
+</body>
+
+</html>

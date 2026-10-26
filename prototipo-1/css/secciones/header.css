@@ -1,0 +1,32 @@
+/* PARTE 1 · Header y navegación */
+.header { position: sticky; top: 0; z-index: 50; background: var(--blanco); border-bottom: 1px solid var(--borde); }
+.header__barra { display: flex; align-items: center; justify-content: space-between; min-height: 72px; gap: 24px; }
+
+.header__menu-btn {
+  width: 44px; height: 44px; border: none; background: transparent; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.header__menu-icono, .header__menu-icono::before, .header__menu-icono::after {
+  display: block; width: 24px; height: 2px; background: var(--texto); border-radius: 2px; position: relative;
+}
+.header__menu-icono::before, .header__menu-icono::after { content: ""; position: absolute; left: 0; }
+.header__menu-icono::before { top: -7px; }
+.header__menu-icono::after { top: 7px; }
+
+/* Celular: el menú se despliega debajo del header */
+.header__nav {
+  display: none; position: absolute; top: 100%; left: 0; right: 0;
+  background: var(--blanco); border-bottom: 1px solid var(--borde); padding: 8px 16px 20px;
+}
+.header__nav.abierto { display: block; }
+.header__lista { list-style: none; margin: 0 0 12px; padding: 0; }
+.header__lista a { display: block; padding: 12px 0; text-decoration: none; }
+.header__lista a:hover { color: var(--acento); }
+
+/* Escritorio: menú en una sola fila */
+@media (min-width: 1024px) {
+  .header__menu-btn { display: none; }
+  .header__nav { display: flex; position: static; align-items: center; gap: 28px; padding: 0; border: none; }
+  .header__lista { display: flex; gap: 28px; margin: 0; }
+  .header__lista a { padding: 8px 0; }
+}

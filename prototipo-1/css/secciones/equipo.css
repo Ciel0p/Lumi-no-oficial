@@ -1,0 +1,9 @@
+/* PARTE 7 · Nosotros (equipo 6Bits) */
+.equipo__grid { display: grid; gap: 32px; align-items: center; }
+.equipo__texto h3 { color: var(--acento); font-size: 1.375rem; }
+.equipo__texto p { color: var(--texto-sec); margin-bottom: 20px; }
+.equipo .video { margin: 0; }
+@media (min-width: 900px) {
+  .equipo__grid { grid-template-columns: 1fr 1.4fr; }
+}
+/* TODO prototipo 2: agregar tarjetas con foto, nombre y rol de cada integrante */

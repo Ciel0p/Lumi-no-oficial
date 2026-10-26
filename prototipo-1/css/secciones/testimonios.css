@@ -1,0 +1,22 @@
+/* PARTE 6 · Testimonios y video About-the-Product */
+.video { margin: 0 0 32px; }
+.video__marco {
+  aspect-ratio: 16 / 9; background: var(--lila); border-radius: 24px;
+  display: flex; align-items: center; justify-content: center;
+}
+.video__play {
+  width: 80px; height: 80px; border-radius: 50%; background: var(--primario); position: relative;
+}
+.video__play::after {
+  content: ""; position: absolute; left: 32px; top: 24px;
+  border-left: 22px solid var(--blanco); border-top: 16px solid transparent; border-bottom: 16px solid transparent;
+}
+.video figcaption { text-align: center; color: var(--texto-sec); font-size: 0.9rem; margin-top: 10px; }
+
+.testimonio { background: var(--fondo); }
+.testimonio p { color: var(--texto); font-size: 1rem; }
+.testimonio footer { color: var(--texto-sec); font-size: 0.9rem; }
+.testimonio footer::before {
+  content: ""; display: block; width: 48px; height: 48px; border-radius: 50%;
+  background: #f29bab; margin: 8px 0;
+}

@@ -1,0 +1,105 @@
+/* =====================================================
+   BASE · colores, tipografía y piezas compartidas
+   Valores tomados del Style Guide de Lumi en Figma.
+   Si cambias algo aquí, cambia en todo el landing.
+   ===================================================== */
+:root {
+  --fondo: #fff8f8;
+  --fondo-rosado: #fff0f2;
+  --blanco: #ffffff;
+  --primario: #e8758a;
+  --acento: #d63f7a;
+  --rosa: #fbd3da;
+  --lila: #eadcf8;
+  --amarillo: #fff3cf;
+  --texto: #4a3f45;
+  --texto-sec: #776b71; /* un poco más oscuro que #8e8288 para cumplir contraste AA */
+  --borde: #f3d9de;
+  --fuente: "Delius", "Segoe UI", sans-serif;
+  --fuente-logo: "Libre Baskerville", Georgia, serif;
+  --radio: 20px;
+  --ancho: 1200px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+body {
+  margin: 0;
+  font-family: var(--fuente);
+  color: var(--texto);
+  background: var(--fondo);
+  line-height: 1.5;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+h1, h2, h3 { font-weight: 400; line-height: 1.2; margin: 0 0 12px; }
+p { margin: 0 0 12px; }
+
+.contenedor { width: 100%; max-width: var(--ancho); margin: 0 auto; padding: 0 16px; }
+
+/* Secciones */
+.seccion { padding: 64px 0; }
+.seccion--blanca { background: var(--blanco); }
+.seccion--rosada { background: var(--fondo-rosado); }
+.seccion__titulo { font-size: clamp(1.75rem, 4vw, 2.5rem); text-align: center; margin-bottom: 16px; }
+.seccion__subtitulo { text-align: center; color: var(--texto-sec); font-size: 1.1rem; max-width: 720px; margin: 0 auto 32px; }
+
+/* Rejillas: 1 columna en celular, más columnas en pantallas grandes */
+.grid-2, .grid-3 { display: grid; gap: 24px; grid-template-columns: 1fr; list-style: none; padding: 0; margin: 0; }
+@media (min-width: 768px) {
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Tarjetas */
+.tarjeta {
+  background: var(--blanco);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 24px;
+  margin: 0;
+}
+.tarjeta h3 { font-size: 1.375rem; }
+.tarjeta p { color: var(--texto-sec); }
+.tarjeta--rosa { background: var(--rosa); }
+.tarjeta--lila { background: var(--lila); }
+.tarjeta--amarilla { background: var(--amarillo); }
+.tarjeta--rosa p, .tarjeta--lila p, .tarjeta--amarilla p { color: var(--texto); }
+
+/* Botones */
+.boton {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 48px; padding: 0 24px; border-radius: 28px;
+  font-family: var(--fuente); font-size: 1rem; text-decoration: none; cursor: pointer;
+  border: 1px solid transparent; transition: background 0.2s ease;
+}
+.boton--primario { background: var(--primario); color: var(--blanco); }
+.boton--primario:hover { background: var(--acento); }
+.boton--oscuro { background: var(--texto); color: var(--blanco); }
+.boton--oscuro:hover { background: #2f282c; }
+.boton--borde { border-color: var(--primario); color: var(--acento); background: transparent; }
+.boton--borde:hover { background: var(--rosa); }
+
+.etiqueta { color: var(--acento); font-size: 1rem; }
+
+/* Logo */
+.logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+.logo__texto { font-family: var(--fuente-logo); color: var(--primario); font-size: 1.9rem; letter-spacing: 2px; }
+.logo__texto--chico { font-size: 1.5rem; }
+
+/* Accesibilidad */
+a:focus-visible, button:focus-visible { outline: 3px solid var(--acento); outline-offset: 3px; }
+.visualmente-oculto {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+.saltar { position: absolute; left: 16px; top: -60px; background: var(--texto); color: var(--blanco); padding: 8px 16px; border-radius: 8px; z-index: 100; }
+.saltar:focus { top: 8px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}

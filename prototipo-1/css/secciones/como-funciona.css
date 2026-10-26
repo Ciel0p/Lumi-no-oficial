@@ -1,0 +1,6 @@
+/* PARTE 4 · Cómo funciona */
+.como__numero {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 48px; height: 48px; border-radius: 50%; background: var(--primario);
+  color: var(--blanco); font-size: 1.25rem; margin-bottom: 12px;
+}

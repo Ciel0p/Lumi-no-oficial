@@ -1,0 +1,13 @@
+/* PARTE 7 · Preguntas frecuentes */
+.faq .contenedor { max-width: 880px; }
+.faq__item { background: var(--blanco); border: 1px solid var(--borde); border-radius: 14px; margin-bottom: 12px; }
+.faq__item h3 { margin: 0; font-size: 1.1rem; }
+.faq__pregunta {
+  width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  min-height: 56px; padding: 16px 20px; border: none; background: transparent;
+  font: inherit; color: var(--texto); text-align: left; cursor: pointer;
+}
+.faq__pregunta::after { content: "+"; color: var(--primario); font-size: 1.5rem; line-height: 1; }
+.faq__pregunta[aria-expanded="true"]::after { content: "–"; }
+.faq__respuesta { padding: 0 20px 16px; color: var(--texto-sec); }
+.faq__respuesta p { margin: 0; }

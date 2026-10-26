@@ -1,0 +1,9 @@
+/* PARTE 5 · Planes */
+.planes .grid-2 { max-width: 880px; margin: 0 auto; }
+.plan { display: flex; flex-direction: column; gap: 8px; }
+.plan__nombre { font-size: 1.5rem; margin: 0; }
+.plan__precio { color: var(--acento); font-size: 2.25rem; margin: 0; }
+.plan__precio span { font-size: 1.1rem; }
+.plan__lista { padding-left: 20px; margin: 4px 0 16px; flex-grow: 1; }
+.plan__lista li { margin-bottom: 6px; }
+.plan .boton { align-self: flex-start; }

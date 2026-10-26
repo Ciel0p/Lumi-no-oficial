@@ -1,0 +1,23 @@
+/* PARTE 2 · Hero */
+.hero { background: var(--fondo-rosado); padding: 56px 0; }
+.hero__grid { display: grid; gap: 40px; align-items: center; justify-items: center; }
+.hero h1 { font-size: clamp(2.25rem, 6vw, 3.75rem); }
+.hero__descripcion { color: var(--texto-sec); font-size: 1.15rem; max-width: 560px; }
+.hero__tiendas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+
+.telefono {
+  width: 280px; height: 560px; background: var(--blanco); border: 6px solid #f29bab;
+  border-radius: 40px; padding: 48px 18px 18px; display: flex; flex-direction: column; gap: 14px;
+}
+.telefono__saludo { color: var(--acento); font-size: 1.5rem; margin: 0; }
+.telefono__bloque { border-radius: 16px; padding: 14px; display: flex; flex-direction: column; gap: 4px; font-size: 0.9rem; }
+.telefono__bloque span { color: var(--texto-sec); }
+.telefono__bloque--lila { background: var(--lila); min-height: 90px; }
+.telefono__bloque--rosa { background: var(--rosa); min-height: 160px; }
+.telefono__bloque--amarillo { background: var(--amarillo); }
+
+@media (min-width: 900px) {
+  .hero { padding: 80px 0; }
+  .hero__grid { grid-template-columns: 1fr auto; justify-items: start; gap: 48px; }
+  .telefono { width: 300px; height: 600px; }
+}
