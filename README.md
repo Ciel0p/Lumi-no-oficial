@@ -3,6 +3,12 @@
 Landing page de **Lumi**, la app que une el seguimiento del ciclo menstrual con la agenda diaria.
 Startup **6Bits** · UPC · IHC y Tecnologías Móviles (1ASI0385).
 
+## Enlaces
+
+- 🌐 **Landing (prototipo 1):** https://ciel0p.github.io/lumi-no-oficial/prototipo-1/
+- 🎨 **Diseño en Figma:** https://www.figma.com/design/BCU2mabbaiTamg5pwkz2T3/LUMI-grupo1-2026
+- 💻 **Repositorio:** https://github.com/Ciel0p/lumi-no-oficial
+
 ## Prototipos
 
 | Carpeta | Entrega | Estado |
