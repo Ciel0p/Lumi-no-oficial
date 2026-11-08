@@ -8,7 +8,7 @@
   --color-background-pink: #fff0f2;
   --color-white: #ffffff;
   --color-primary: #e8758a;
-  --color-accent: #d63f7a;
+  --color-accent: #c2185b;   /* más oscuro que #d63f7a: contraste AA con blanco */
   --color-pink: #fbd3da;
   --color-lilac: #eadcf8;
   --color-yellow: #fff3cf;
@@ -76,8 +76,8 @@ p { margin: 0 0 12px; }
   font-family: var(--font-body); font-size: 1rem; text-decoration: none; cursor: pointer;
   border: 1px solid transparent; transition: background 0.2s ease;
 }
-.button--primary { background: var(--color-primary); color: var(--color-white); }
-.button--primary:hover { background: var(--color-accent); }
+.button--primary { background: var(--color-accent); color: var(--color-white); }
+.button--primary:hover { background: #9c1b47; }
 .button--dark { background: var(--color-text); color: var(--color-white); }
 .button--dark:hover { background: #2f282c; }
 .button--outline { border-color: var(--color-primary); color: var(--color-accent); background: transparent; }
