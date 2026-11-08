@@ -1,0 +1,4 @@
+/* Problema */
+.problem__icon { display: block; width: 48px; height: 48px; border-radius: 50%; background: #f29bab; margin-bottom: 12px; }
+.problem .card:nth-child(2) .problem__icon { background: #c9aeeb; }
+.problem .card:nth-child(3) .problem__icon { background: #ffd978; }

@@ -1,0 +1,8 @@
+/* Para quién es */
+.audience__image {
+  height: 160px; border-radius: 14px; background: var(--color-lilac); margin-bottom: 16px;
+  display: flex; align-items: center; justify-content: center; color: var(--color-accent);
+}
+.audience__image svg { width: 72px; height: 72px; }
+.audience .card:nth-child(2) .audience__image { background: var(--color-pink); }
+.audience .card:nth-child(3) .audience__image { background: var(--color-yellow); }

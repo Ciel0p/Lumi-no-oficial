@@ -1,0 +1,16 @@
+/* Testimonios y videos */
+.video { margin: 0 0 32px; }
+.video__frame {
+  aspect-ratio: 16 / 9; background: var(--color-lilac); border-radius: 24px;
+  display: flex; flex-direction: column; gap: 12px; align-items: center; justify-content: center; text-align: center; padding: 16px;
+}
+.video__play { width: 80px; height: 80px; border-radius: 50%; background: var(--color-primary); position: relative; }
+.video__play::after {
+  content: ""; position: absolute; left: 32px; top: 24px;
+  border-left: 22px solid var(--color-white); border-top: 16px solid transparent; border-bottom: 16px solid transparent;
+}
+.video figcaption { text-align: center; color: var(--color-text-secondary); font-size: 0.9rem; margin-top: 10px; }
+
+.testimonial { background: var(--color-background); }
+.testimonial p { color: var(--color-text); }
+.testimonial footer { color: var(--color-text-secondary); font-size: 0.9rem; }

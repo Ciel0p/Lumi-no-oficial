@@ -1,0 +1,14 @@
+/* Nosotros */
+.about-us__grid { display: grid; gap: 32px; align-items: center; margin-bottom: 40px; }
+.about-us__text h3 { color: var(--color-accent); font-size: 1.375rem; }
+.about-us__text p { color: var(--color-text-secondary); margin-bottom: 20px; }
+.about-us .video { margin: 0; }
+.team { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); list-style: none; padding: 0; margin: 0; }
+.team__member { text-align: center; padding: 20px 12px; }
+.team__avatar {
+  width: 64px; height: 64px; border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center;
+  background: var(--color-pink); color: var(--color-accent); font-size: 1.3rem;
+}
+.team__name { font-size: 1rem; margin: 0 0 4px; }
+.team__role { font-size: 0.85rem; color: var(--color-text-secondary); margin: 0; }
+@media (min-width: 900px) { .about-us__grid { grid-template-columns: 1fr 1.4fr; } }
