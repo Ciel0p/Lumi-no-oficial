@@ -260,9 +260,9 @@
     if (Array.isArray(child)) { child.forEach(function (c) { append(el, c); }); return; }
     el.appendChild(typeof child === 'string' || typeof child === 'number' ? document.createTextNode(String(child)) : child);
   }
-  function card(title, hu, cls) {
-    var c = h('section', { class: 'app-card' + (cls ? ' ' + cls : ''), 'data-hu': hu });
-    c.appendChild(h('h4', { class: 'app-card__title' }, title, hu ? h('span', { class: 'app-card__hu', text: hu }) : null));
+  function card(title, cls) {
+    var c = h('section', { class: 'app-card' + (cls ? ' ' + cls : '') });
+    c.appendChild(h('h4', { class: 'app-card__title' }, title));
     return c;
   }
   var uid = 0;
@@ -317,25 +317,17 @@
       h('button', { type: 'button', class: 'app-chip' + (state.security.discreet ? ' is-active' : ''), 'aria-pressed': String(state.security.discreet), onclick: toggleDiscreet, text: 'Modo discreto' }),
       h('button', { type: 'button', class: 'app-chip', onclick: lockNow, text: 'Bloquear' })));
 
-    // Controles de la demostración, en una barra aparte y con otro estilo
-    var sim = app.querySelector('.app__simbar');
-    if (!sim) {
-      sim = document.createElement('details');
-      sim.className = 'app__simbar';
-      // En pantallas grandes del landing va abierta; en el celular empieza cerrada
-      sim.open = !document.body.classList.contains('app-page') && window.matchMedia('(min-width: 900px)').matches;
-      bar.parentNode.insertBefore(sim, bar.nextSibling);
-    }
+    // Cambio de fecha de la demostración: en una franja aparte, separada de los controles de la app
+    var sim = app.querySelector('.app__demo');
+    if (!sim) { sim = h('div', { class: 'app__demo' }); bar.parentNode.insertBefore(sim, bar.nextSibling); }
     sim.textContent = '';
-    sim.appendChild(h('summary', { class: 'app__simbar-label', text: 'Herramientas de la demo (no son parte de la app)' }));
-    sim.appendChild(h('div', { class: 'app__simbar-buttons', role: 'group', 'aria-label': 'Simular el paso de los días (solo demo)' },
-      h('span', { class: 'app__simbar-hint', text: 'Simular tiempo:' }),
+    sim.appendChild(h('span', { class: 'app__demo-tag', text: 'Demo' }));
+    sim.appendChild(h('span', { class: 'app__demo-label', text: 'Cambiar fecha:' }));
+    sim.appendChild(h('div', { class: 'app__demo-buttons', role: 'group', 'aria-label': 'Cambiar la fecha de la demostración' },
       h('button', { type: 'button', class: 'app-sim', onclick: function () { moveToday(-1); }, 'aria-label': 'Retroceder un día', text: '−1 día' }),
       h('button', { type: 'button', class: 'app-sim', onclick: function () { moveToday(1); }, 'aria-label': 'Avanzar un día', text: '+1 día' }),
       h('button', { type: 'button', class: 'app-sim', onclick: function () { moveToday(7); }, 'aria-label': 'Avanzar una semana', text: '+7 días' }),
-      h('button', { type: 'button', class: 'app-sim', onclick: function () { moveToday(diffDays(REAL_TODAY, state.today)); }, text: 'Hoy' }),
-      h('button', { type: 'button', class: 'app-sim' + (state.ui.evaluator ? ' is-active' : ''), 'aria-pressed': String(!!state.ui.evaluator),
-        onclick: function () { state.ui.evaluator = !state.ui.evaluator; render(); }, text: 'Ver códigos HU' })));
+      h('button', { type: 'button', class: 'app-sim', onclick: function () { moveToday(diffDays(REAL_TODAY, state.today)); }, text: 'Hoy' })));
   }
 
   function moveToday(n) {
@@ -355,7 +347,7 @@
     var late = daysLate();
 
     // US-45 Fase y energía
-    var phase = card('Tu fase de hoy', 'US-45', 'app-card--phase');
+    var phase = card('Tu fase de hoy', 'app-card--phase');
     phase.appendChild(h('p', { class: 'app-phase__name', text: late ? 'Esperando tu ' + t('period') : info.name }));
     phase.appendChild(h('p', { class: 'app-muted', text: 'Día ' + cycleDay(state.today) + ' de tu ' + t('cycle') + ' de ' + cycleLength() + ' días · Próximo ' + t('period') + ': ' + longDate(nextPeriodDate()) }));
     var bar = h('div', { class: 'app-energy', role: 'progressbar', 'aria-valuemin': '0', 'aria-valuemax': '100', 'aria-valuenow': String(info.energy), 'aria-label': 'Energía esperada' },
@@ -367,7 +359,7 @@
 
     // US-16 Retraso
     if (late) {
-      var lateCard = card('Retraso de tu ' + t('period'), 'US-16', 'app-card--warning');
+      var lateCard = card('Retraso de tu ' + t('period'), 'app-card--warning');
       lateCard.appendChild(h('p', { text: 'Tu ' + t('period') + ' lleva ' + late + ' días de retraso respecto a la fecha estimada (' + longDate(addDays(lastStart(), cycleLength())) + '). Si el retraso continúa, considera consultar con un profesional de salud.' }));
       lateCard.appendChild(h('button', { type: 'button', class: 'button button--primary', onclick: function () { goTab('calendar'); }, text: 'Registrar inicio' }));
       panel.appendChild(lateCard);
@@ -375,7 +367,7 @@
 
     // US-14 Ajuste por irregularidad
     var st = cycleStats();
-    var irr = card('Predicción ajustada a tu ' + t('cycle'), 'US-14');
+    var irr = card('Predicción ajustada a tu ' + t('cycle'));
     if (st.irregular) {
       irr.appendChild(h('p', { text: 'Tus últimos ' + t('cycle') + 's duraron entre ' + st.min + ' y ' + st.max + ' días. ' +
         (state.cycle.autoAdjust ? 'Ajustamos la predicción a ' + Math.round(st.avg) + ' días (tu promedio real).' : 'El ajuste automático está apagado: usamos ' + state.cycle.length + ' días.') }));
@@ -389,7 +381,7 @@
     panel.appendChild(irr);
 
     // US-46 y US-47 Alertas y reprogramación
-    var alerts = card('Alertas de baja energía', 'US-46 · US-47');
+    var alerts = card('Alertas de baja energía');
     var list = upcomingConflicts();
     if (!list.length) alerts.appendChild(h('p', { class: 'app-ok', text: 'Ninguna actividad importante coincide con días de baja energía en los próximos 30 días.' }));
     list.forEach(function (ev) {
@@ -412,7 +404,7 @@
     panel.appendChild(alerts);
 
     // US-48 Recordatorios combinados
-    var rem = card('Recordatorios inteligentes', 'US-48');
+    var rem = card('Recordatorios inteligentes');
     var reminders = upcomingReminders();
     if (!reminders.length) rem.appendChild(h('p', { class: 'app-muted', text: 'No tienes recordatorios para hoy ni mañana. Créalos al agregar una actividad en Calendario.' }));
     reminders.forEach(function (r) { rem.appendChild(h('p', { class: 'app-reminder' }, h('strong', { text: r.when + ': ' }), r.text)); });
@@ -473,7 +465,7 @@
      Pestaña Calendario
      ------------------------------------------------------------------ */
   function renderCalendar(panel) {
-    var cal = card('Calendario unificado', 'US-44', 'app-card--calendar');
+    var cal = card('Calendario unificado', 'app-card--calendar');
     var m = state.ui.month;
     cal.appendChild(h('div', { class: 'app-cal__head' },
       h('button', { type: 'button', class: 'app-icon-button', 'aria-label': 'Mes anterior', onclick: function () { state.ui.month = new Date(m.getFullYear(), m.getMonth() - 1, 1); render(); }, text: '‹' }),
@@ -547,7 +539,7 @@
     var d = state.ui.selected;
     var key = toKey(d);
     var info = phaseInfo(d);
-    var c = card(longDate(d) + ' · ' + info.name, 'US-44 · US-22 · US-23 · US-50', 'app-card--day');
+    var c = card(longDate(d) + ' · ' + info.name, 'app-card--day');
     var events = state.events.filter(function (e) { return e.date === key; }).sort(byDate);
     if (!events.length) c.appendChild(h('p', { class: 'app-muted', text: 'Sin actividades este día.' }));
     var list = h('ul', { class: 'app-list' });
@@ -578,7 +570,7 @@
     var d = state.ui.selected;
     var key = toKey(d);
     var log = state.logs[key] || { flow: '', symptoms: [], mood: '', meds: [] };
-    var c = card('Registrar el ' + longDate(d), 'US-11 · US-17 · US-12 · US-18 · US-15');
+    var c = card('Registrar el ' + longDate(d));
     c.id = 'log-form';
     var msg = h('p', { class: 'app-message', role: 'status' });
     c.appendChild(h('div', { class: 'app-actions' },
@@ -630,7 +622,7 @@
 
   // US-21, US-50, US-22, US-23, US-48
   function renderEventForm() {
-    var c = card('Agregar actividad', 'US-21 · US-50 · US-22 · US-23 · US-48');
+    var c = card('Agregar actividad');
     c.id = 'event-form';
     var title = h('input', { class: 'input', type: 'text', placeholder: 'Ej.: Reunión de equipo', maxlength: '60' });
     var date = h('input', { class: 'input', type: 'date', value: toKey(state.ui.selected) });
@@ -677,7 +669,7 @@
 
   function renderSchedule(panel) {
     // US-19 y US-24
-    var sync = card('Agendas vinculadas', 'US-19 · US-24');
+    var sync = card('Agendas vinculadas');
     ['google', 'outlook'].forEach(function (src) {
       var status = state.calendars[src];
       var count = state.events.filter(function (e) { return e.source === src; }).length;
@@ -695,7 +687,7 @@
     panel.appendChild(sync);
 
     // US-20 Importar CSV
-    var csv = card('Importar horario académico (CSV)', 'US-20');
+    var csv = card('Importar horario académico (CSV)');
     var area = h('textarea', { class: 'textarea', spellcheck: 'false' });
     area.value = 'curso,dia,hora\nCálculo,lunes,08:00\nFísica,miércoles,10:00\nProgramación,viernes,14:00';
     var file = h('input', { type: 'file', accept: '.csv,text/csv', class: 'input' });
@@ -719,7 +711,7 @@
     panel.appendChild(csv);
 
     // Agenda de los próximos 14 días con clasificación de reuniones (US-23)
-    var agenda = card('Tu agenda (próximos 14 días)', 'US-23');
+    var agenda = card('Tu agenda (próximos 14 días)');
     var upcoming = state.events.filter(function (e) { var d = diffDays(fromKey(e.date), state.today); return d >= 0 && d <= 14; }).sort(byDate);
     if (!upcoming.length) agenda.appendChild(h('p', { class: 'app-muted', text: 'No hay actividades en los próximos 14 días.' }));
     var list = h('ul', { class: 'app-list' });
@@ -791,7 +783,7 @@
     var log = state.logs[todayKey];
 
     // US-35 Autocuidado según ánimo
-    var care = card('Autocuidado según tu ánimo', 'US-35');
+    var care = card('Autocuidado según tu ánimo');
     var mood = log && log.mood;
     if (!mood) care.appendChild(h('p', { class: 'app-muted', text: '¿Cómo te sientes hoy? Elige tu ánimo y te sugerimos actividades.' }));
     var moods = h('div', { class: 'app-actions' });
@@ -804,14 +796,14 @@
     panel.appendChild(care);
 
     // US-36 Refrigerios
-    var snack = card('Refrigerios para tu energía', 'US-36');
+    var snack = card('Refrigerios para tu energía');
     var snackKey = info.key === 'menstrual' ? 'menstrual' : (info.key === 'late' ? 'late' : 'normal');
     snack.appendChild(h('p', { class: info.energy <= 45 ? 'app-warning' : 'app-muted', text: info.energy <= 45 ? 'Tu energía hoy es baja. Te recomendamos:' : 'Tu energía hoy es ' + info.level.toLowerCase() + '. Opciones saludables:' }));
     snack.appendChild(h('ul', { class: 'app-tips' }, SNACKS[snackKey].map(function (s) { return h('li', { text: s }); })));
     panel.appendChild(snack);
 
     // US-37 Agua
-    var water = card('Hidratación', 'US-37');
+    var water = card('Hidratación');
     var glasses = state.water.byDay[todayKey] || 0;
     water.appendChild(h('p', { class: 'app-water' }, h('strong', { text: glasses + ' / ' + state.water.goal }), ' vasos de agua hoy'));
     water.appendChild(h('div', { class: 'app-energy', role: 'progressbar', 'aria-valuemin': '0', 'aria-valuemax': String(state.water.goal), 'aria-valuenow': String(glasses), 'aria-label': 'Vasos de agua' },
@@ -829,7 +821,7 @@
     panel.appendChild(water);
 
     // US-38 Resumen semanal
-    var week = card('Resumen semanal de hidratación y nutrición', 'US-38');
+    var week = card('Resumen semanal de hidratación y nutrición');
     var chart = h('div', { class: 'app-bars', role: 'img', 'aria-label': 'Vasos de agua de los últimos 7 días' });
     var total = 0;
     for (var i = 6; i >= 0; i--) {
@@ -860,7 +852,7 @@
   // US-30, US-31, US-32, US-33, US-34
   function renderHabits() {
     var todayKey = toKey(state.today);
-    var c = card('Mis hábitos', 'US-30 · US-31 · US-32 · US-33 · US-34');
+    var c = card('Mis hábitos');
     var available = HABIT_CATALOG.filter(function (x) { return !state.habits.some(function (hb) { return hb.name === x.name && !hb.archived; }); });
     var opts = {};
     available.forEach(function (x, i) { opts[i] = x.name + ' (' + MOMENTS[x.moment].toLowerCase() + ')'; });
@@ -919,7 +911,7 @@
      ------------------------------------------------------------------ */
   function renderProfile(panel) {
     // US-01, US-05, US-03
-    var prof = card('Mi perfil', 'US-01 · US-05 · US-03');
+    var prof = card('Mi perfil');
     prof.appendChild(h('ul', { class: 'app-list' },
       h('li', {}, h('strong', { text: 'Estilo de vida: ' }), SEGMENTS[state.profile.segment]),
       h('li', {}, h('strong', { text: 'Objetivos: ' }), state.profile.goals.map(function (g) { return GOALS[g]; }).join(' · ') || 'Sin objetivos'),
@@ -929,7 +921,7 @@
     panel.appendChild(prof);
 
     // US-25 y US-26
-    var sec = card('Privacidad y seguridad', 'US-25 · US-26');
+    var sec = card('Privacidad y seguridad');
     var pin = h('input', { class: 'input', type: 'password', inputmode: 'numeric', maxlength: '4', autocomplete: 'off', placeholder: '4 dígitos' });
     var pin2 = h('input', { class: 'input', type: 'password', inputmode: 'numeric', maxlength: '4', autocomplete: 'off', placeholder: 'Repite el PIN' });
     var msg = h('p', { class: 'app-message', role: 'status' });
@@ -959,7 +951,7 @@
     panel.appendChild(sec);
 
     // US-13 Historial
-    var hist = card('Historial de ' + t('cycle') + 's', 'US-13');
+    var hist = card('Historial de ' + t('cycle') + 's');
     var periods = sortedPeriods();
     var table = h('table', { class: 'app-table' },
       h('caption', { class: 'visually-hidden', text: 'Historial de ' + t('cycle') + 's anteriores' }),
@@ -986,7 +978,7 @@
 
   // US-49 y estadística de US-15
   function renderReport() {
-    var c = card('Reporte de patrones', 'US-49');
+    var c = card('Reporte de patrones');
     var st = cycleStats();
     var symptomCount = {}, moodCount = {}, cramps = 0, crampsWithPain = 0, logged = 0;
     Object.keys(state.logs).forEach(function (k) {
@@ -1157,7 +1149,6 @@
     overlay.textContent = '';
     overlay.hidden = true;
     app.classList.toggle('is-discreet', state.security.discreet);
-    app.classList.toggle('is-evaluator', !!state.ui.evaluator);
     app.classList.toggle('is-welcome', !state.started);
 
     var welcome = app.querySelector('.app__welcome');
@@ -1199,7 +1190,7 @@
     });
   }
 
-  // API para el modo entrevista (js/interview.js)
+  // Permite reiniciar la demo (por ejemplo, al eliminar la cuenta)
   window.LumiDemo = {
     reset: function (useSample) {
       nextId = 1;

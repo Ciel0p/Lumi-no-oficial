@@ -1,10 +1,7 @@
 /* Prueba Lumi: demo interactiva */
-.try-lumi__intro { max-width: 760px; margin: 0 auto 24px; text-align: center; }
-.try-lumi__stories { max-width: 1000px; margin: 0 auto 24px; background: var(--color-background); border: 1px solid var(--color-border); border-radius: 16px; padding: 12px 20px; }
-.try-lumi__stories summary { cursor: pointer; font-weight: bold; min-height: 32px; display: flex; align-items: center; }
-.try-lumi__table-wrap { overflow-x: auto; margin-top: 12px; }
-.try-lumi__table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
-.try-lumi__table th, .try-lumi__table td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--color-border); vertical-align: top; }
+.try-lumi__intro { max-width: 760px; margin: 0 auto; text-align: center; }
+.try-lumi__intro .section__subtitle { margin-bottom: 24px; }
+.try-lumi__note { margin-top: 16px; font-size: 0.95rem; color: var(--color-text-secondary); }
 
 /* Lo oculto con el atributo hidden no se muestra aunque tenga display propio */
 .app [hidden] { display: none !important; }
@@ -65,7 +62,6 @@
 /* Tarjetas de la app */
 .app-card { background: var(--color-white); border: 1px solid var(--color-border); border-radius: 20px; padding: 18px; min-width: 0; }
 .app-card__title { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin: 0 0 10px; font-size: 1.1rem; }
-.app-card__hu { display: none; font-size: 0.875rem; color: var(--color-text-secondary); background: var(--color-background); border-radius: 999px; padding: 2px 8px; white-space: nowrap; }
 .app-card--phase { background: linear-gradient(150deg, var(--color-lilac), var(--color-white) 70%); }
 .app-card--warning { background: #fff0f3; border-color: #f29bab; }
 .app-phase__name { font-size: 1.6rem; color: var(--color-accent); margin: 0; }
@@ -187,28 +183,21 @@
 
 /* ---------- Prototipo 3: correcciones de la auditoría ---------- */
 
-/* Códigos HU: solo con "Ver códigos HU" (modo evaluador) */
-.app.is-evaluator .app-card__hu { display: inline-block; }
-
-/* Barra de simulación: separada y con otro estilo (solo demo) */
-.app__simbar {
-  padding: 0 20px; font-size: 0.875rem; color: var(--color-text-secondary);
-  background: repeating-linear-gradient(-45deg, #f6f3f5, #f6f3f5 10px, #efeaee 10px, #efeaee 20px);
-  border-bottom: 1px dashed #b8aab2;
+/* Franja de la demostración: cambio de fecha, separado de los controles de la app */
+.app__demo {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 8px 20px;
+  background: #f6f1fa; border-bottom: 1px solid var(--color-border); font-size: 0.875rem; color: var(--color-text-secondary);
 }
-.app__simbar-label { font-weight: bold; cursor: pointer; padding: 10px 0; min-height: 44px; display: flex; align-items: center; gap: 8px; list-style: none; }
-.app__simbar-label::-webkit-details-marker { display: none; }
-.app__simbar-label::after { content: "+"; margin-left: auto; font-size: 1.2rem; }
-.app__simbar[open] .app__simbar-label::after { content: "−"; }
-.app__simbar-buttons { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; padding-bottom: 10px; }
-.app__simbar-hint { flex: 0 0 100%; }
-@media (min-width: 600px) { .app__simbar-hint { flex: 0 0 auto; margin-right: 4px; } }
+.app__demo-tag { background: #6b3fa0; color: var(--color-white); font-weight: bold; padding: 2px 10px; border-radius: 999px; }
+.app__demo-label { display: none; }
+@media (min-width: 600px) { .app__demo-label { display: inline; } }
+.app__demo-buttons { display: flex; flex-wrap: wrap; gap: 4px; }
+@media (max-width: 380px) { .app__demo { padding: 8px 12px; gap: 6px; } }
 .app-sim {
-  min-height: 36px; padding: 4px 12px; border-radius: 8px; border: 1px dashed #8e8288;
+  min-height: 36px; padding: 4px 9px; border-radius: 999px; border: 1px solid var(--color-border);
   background: var(--color-white); color: var(--color-text); font: inherit; font-size: 0.875rem; cursor: pointer;
 }
-.app-sim:hover { background: #ece6ea; }
-.app-sim.is-active { background: var(--color-text); color: var(--color-white); border-style: solid; }
+.app-sim:hover { background: var(--color-background); }
 
 /* Aviso arriba, con botón de cerrar (no tapa acciones) */
 .app__toast {
@@ -242,8 +231,8 @@
 /* App a pantalla completa en el celular (app.html) */
 .app-page { margin: 0; background: var(--color-background); }
 .app-page .app { max-width: none; border: none; border-radius: 0; box-shadow: none; min-height: 100vh; min-height: 100dvh; }
-.app-page .app__topbar { padding-top: 12px; }
-.app-page .app__toast { position: fixed; top: calc(var(--iv-bar-height, 0px) + 8px); z-index: 19; width: max-content; }
+.app-page .app__topbar { padding-top: max(12px, env(safe-area-inset-top)); }
+.app-page .app__toast { position: fixed; top: max(8px, env(safe-area-inset-top)); z-index: 19; width: max-content; }
 .app-page .app__tabs { padding-bottom: env(safe-area-inset-bottom); }
 .app-page .app__body { padding-bottom: 24px; }
 @media (max-width: 899px) {
@@ -253,5 +242,5 @@
 .app-link { align-self: center; color: var(--color-accent); }
 
 /* Antes de configurar la app no se muestran la barra superior ni las herramientas de la demo */
-.app.is-welcome .app__topbar, .app.is-welcome .app__simbar { display: none; }
+.app.is-welcome .app__topbar, .app.is-welcome .app__demo { display: none; }
 .app__welcome .hero__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 0; }
