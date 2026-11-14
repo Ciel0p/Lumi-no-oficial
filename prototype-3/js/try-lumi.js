@@ -304,6 +304,33 @@
   }
 
   /* ------------------------------------------------------------------
+     Apariencia: claro, oscuro o automático (según el dispositivo)
+     ------------------------------------------------------------------ */
+  var THEMES = [['light', 'Claro'], ['dark', 'Oscuro'], ['auto', 'Automático']];
+  var theme = 'light';
+  try { theme = localStorage.getItem('lumi-theme') || 'light'; } catch (e) { /* sin almacenamiento: se queda en claro */ }
+  var darkQuery = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+
+  function isDark() { return theme === 'dark' || (theme === 'auto' && !!darkQuery && darkQuery.matches); }
+
+  function applyTheme() {
+    var dark = isDark();
+    app.classList.toggle('is-dark', dark);
+    if (document.body.classList.contains('app-page')) {
+      document.body.classList.toggle('is-dark', dark);
+      var meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute('content', dark ? '#2a2327' : '#ffffff');
+    }
+  }
+
+  function setTheme(value) {
+    theme = value;
+    try { localStorage.setItem('lumi-theme', value); } catch (e) { /* solo dura esta visita */ }
+    render();
+  }
+  if (darkQuery && darkQuery.addEventListener) darkQuery.addEventListener('change', applyTheme);
+
+  /* ------------------------------------------------------------------
      Barra superior: fecha simulada, modo discreto y bloqueo
      ------------------------------------------------------------------ */
   function renderTopbar() {
@@ -313,8 +340,9 @@
       h('strong', { text: 'Hola, ' + state.profile.name }),
       h('span', { text: WEEKDAYS[state.today.getDay()] + ' ' + longDate(state.today) + (diffDays(state.today, REAL_TODAY) ? ' (simulado)' : '') })));
     // Controles de la app (funciones reales de Lumi)
-    bar.appendChild(h('div', { class: 'app__controls', role: 'group', 'aria-label': 'Privacidad' },
+    bar.appendChild(h('div', { class: 'app__controls', role: 'group', 'aria-label': 'Privacidad y apariencia' },
       h('button', { type: 'button', class: 'app-chip' + (state.security.discreet ? ' is-active' : ''), 'aria-pressed': String(state.security.discreet), onclick: toggleDiscreet, text: 'Modo discreto' }),
+      h('button', { type: 'button', class: 'app-chip' + (isDark() ? ' is-active' : ''), 'aria-pressed': String(isDark()), onclick: function () { setTheme(isDark() ? 'light' : 'dark'); }, text: 'Modo oscuro' }),
       h('button', { type: 'button', class: 'app-chip', onclick: lockNow, text: 'Bloquear' })));
 
     // Cambio de fecha de la demostración: en una franja aparte, separada de los controles de la app
@@ -921,6 +949,12 @@
     panel.appendChild(prof);
 
     // US-25 y US-26
+    var look = card('Apariencia');
+    var themeChips = chips('theme', THEMES, [theme], 'radio');
+    themeChips.addEventListener('change', function (e) { setTheme(e.target.value); });
+    look.appendChild(h('fieldset', { class: 'field' }, h('legend', { text: 'Tema de la app' }), themeChips));
+    look.appendChild(h('p', { class: 'app-muted', text: 'El modo oscuro es más cómodo con poca luz. "Automático" sigue el tema de tu celular.' }));
+
     var sec = card('Privacidad y seguridad');
     var pin = h('input', { class: 'input', type: 'password', inputmode: 'numeric', maxlength: '4', autocomplete: 'off', placeholder: '4 dígitos' });
     var pin2 = h('input', { class: 'input', type: 'password', inputmode: 'numeric', maxlength: '4', autocomplete: 'off', placeholder: 'Repite el PIN' });
@@ -948,6 +982,7 @@
     sec.appendChild(h('div', { class: 'app-switch' },
       h('input', { type: 'checkbox', id: discId, checked: state.security.discreet, onchange: toggleDiscreet }),
       h('label', { for: discId, text: 'Modo discreto: cambia los términos biológicos por nombres neutros para usar Lumi en público' })));
+    panel.appendChild(look);
     panel.appendChild(sec);
 
     // US-13 Historial
@@ -1150,6 +1185,7 @@
     overlay.hidden = true;
     app.classList.toggle('is-discreet', state.security.discreet);
     app.classList.toggle('is-welcome', !state.started);
+    applyTheme();
 
     var welcome = app.querySelector('.app__welcome');
     var body = app.querySelector('.app__body');

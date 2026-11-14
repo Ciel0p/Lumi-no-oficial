@@ -42,6 +42,8 @@ Los datos de la app viven en memoria: al recargar vuelven al inicio.
 | 8 | Datos del ciclo contradictorios entre pantallas | El historial muestra el periodo estimado y "Actual · día N" igual que Inicio |
 | 9 | Textos de 12–13 px | Tamaño mínimo de 14 px en todo el sitio |
 
+La demo también tiene **modo oscuro** (botón en la barra superior o Perfil → Apariencia: claro, oscuro o automático).
+
 ## Demo: historias de usuario cubiertas
 
 La demo (`app.html`) tiene las 5 pestañas del diseño móvil: **Inicio, Calendario, Horarios, Bienestar y Perfil**.

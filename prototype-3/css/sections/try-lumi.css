@@ -244,3 +244,41 @@
 /* Antes de configurar la app no se muestran la barra superior ni las herramientas de la demo */
 .app.is-welcome .app__topbar, .app.is-welcome .app__demo { display: none; }
 .app__welcome .hero__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 0; }
+
+/* ---------- Modo oscuro (Perfil → Apariencia, según el diseño de Figma) ---------- */
+.is-dark {
+  color-scheme: dark;
+  --color-background: #2a2327;
+  --color-background-pink: #332b2f;
+  --color-white: #3a3236;          /* superficies: tarjetas, barras y campos */
+  --color-text: #f5edef;
+  --color-text-secondary: #bfafb5;
+  --color-border: #54474d;
+  --color-accent: #f08ba0;         /* rosado más claro para que se lea sobre fondo oscuro */
+  --color-pink: #5a3a45;
+  --color-lilac: #463a55;
+  --color-yellow: #4d4326;
+}
+.app.is-dark { color: var(--color-text); border-color: #54474d; box-shadow: none; }
+/* Texto oscuro sobre los elementos rosados y lilas */
+.is-dark .button--primary, .is-dark .app-chip.is-active, .is-dark .app-cal__day.is-period { color: #2a2327; }
+.is-dark .button--primary:hover { background: #f5a3b4; }
+.is-dark .app-cal__day.is-period .app-icon--period { fill: #2a2327; }
+.is-dark .app__demo-tag, .is-dark .app-cal__count { background: #c9aeeb; color: #2a2327; }
+.is-dark .app__toast-close { background: rgba(0, 0, 0, 0.12); color: #2a2327; }
+/* Colores fijos del modo claro */
+.is-dark .app__demo { background: #332a3a; }
+.is-dark .app__overlay { background: rgba(42, 35, 39, 0.97); }
+.is-dark .app-card--warning { background: #4a2b35; border-color: #e8758a; }
+.is-dark .app-ok { background: #24402f; }
+.is-dark .app-warning { color: #ffb3c2; }
+.is-dark .app-energy { background: #54474d; }
+.is-dark .app-cal__day { background: #332b2f; }
+.is-dark .app-cal__day.is-low { background: var(--color-yellow); }
+.is-dark .app-cal__day.is-predicted, .is-dark .app-dot--predicted { border-color: #c9aeeb; }
+.is-dark .app-cal__day.is-period { background: var(--color-accent); }
+.is-dark .app-icon--predicted { stroke: #c9aeeb; }
+.is-dark .app-icon--low { fill: #f2c94c; }
+.is-dark .app-dot--event { background: #c9aeeb; }
+.is-dark .app-bars__bar { background: #4f6f8f; }
+.is-dark .app-cal__day.is-empty { background: transparent; }
