@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lumi: la app que une el seguimiento de tu ciclo menstrual con tu agenda diaria. Prueba la demo interactiva.">
+  <title>Lumi – Privacidad y términos</title>
+
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo-icon.svg">
+
+  <!-- Tipografías del Style Guide (Figma) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Delius&family=Libre+Baskerville&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/sections/header.css">
+  <link rel="stylesheet" href="css/sections/footer.css">
+  <link rel="stylesheet" href="css/sections/legal.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+
+  <!-- Header y navegación -->
+  <header class="header">
+    <div class="container header__bar">
+      <a class="logo" href="index.html#home" aria-label="Lumi, ir al inicio">
+        <img src="assets/images/logo-icon.svg" alt="" width="44" height="44">
+        <span class="logo__text">LUMI</span>
+      </a>
+
+      <button class="header__menu-button" type="button" aria-expanded="false" aria-controls="main-menu">
+        <span class="visually-hidden">Abrir menú</span>
+        <span class="header__menu-icon" aria-hidden="true"></span>
+      </button>
+
+      <nav class="header__nav" id="main-menu" aria-label="Menú principal">
+        <ul class="header__list">
+          <li><a href="index.html#home">Inicio</a></li>
+          <li><a href="index.html#features">Funciones</a></li>
+          <li><a href="index.html#try-lumi">Prueba Lumi</a></li>
+          <li><a href="index.html#pricing">Planes</a></li>
+          <li><a href="index.html#validation">Validación</a></li>
+          <li><a href="index.html#about-us">Nosotros</a></li>
+          <li><a href="index.html#faq">Preguntas</a></li>
+        </ul>
+        <a class="button button--primary" href="app.html">Probar Lumi</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="legal">
+    <div class="container legal__container">
+      <p class="eyebrow">Tus datos, tus reglas</p>
+      <h1>Privacidad y términos de uso</h1>
+      <p class="legal__note">Versión del prototipo académico · noviembre de 2026. Lumi es un proyecto del curso IHC y Tecnologías Móviles de la UPC; la app todavía no está publicada en las tiendas.</p>
+
+      <nav class="legal__toc" aria-label="Contenido de la página">
+        <ul>
+          <li><a href="#privacidad">Política de privacidad</a></li>
+          <li><a href="#eliminar">Cómo eliminar tus datos</a></li>
+          <li><a href="#cookies">Cookies</a></li>
+          <li><a href="#terminos">Términos de uso</a></li>
+        </ul>
+      </nav>
+
+      <section id="privacidad" aria-labelledby="privacidad-title">
+        <h2 id="privacidad-title">Política de privacidad</h2>
+        <h3>¿Qué datos guarda Lumi?</h3>
+        <ul>
+          <li><strong>Datos de tu ciclo:</strong> fechas de tu periodo, flujo, síntomas, estado de ánimo y medicamentos que registres.</li>
+          <li><strong>Tu agenda:</strong> las actividades que agregues, y las de Google Calendar u Outlook solo si tú decides vincularlos.</li>
+          <li><strong>Tu perfil:</strong> el nombre con el que quieres que te saludemos, tu estilo de vida y tus objetivos.</li>
+        </ul>
+        <h3>¿Para qué los usamos?</h3>
+        <p>Solo para calcular tu fase, tu energía y tus predicciones, y para avisarte cuando una actividad importante coincide con un día de baja energía. <strong>No vendemos tus datos ni los usamos para publicidad.</strong></p>
+        <h3>¿Dónde se guardan y quién los ve?</h3>
+        <p>En la app, tus datos de salud se guardan cifrados y solo tú puedes verlos. Puedes proteger Lumi con PIN o huella y usar el modo discreto, que cambia los términos biológicos por nombres neutros.</p>
+        <p>En la <strong>demo de esta página</strong> no se guarda nada: todo vive en la memoria de tu navegador y se borra al recargar.</p>
+        <h3>Datos sensibles</h3>
+        <p>La información sobre tu salud es un dato sensible. En el Perú, la Ley N.° 29733 de Protección de Datos Personales exige tu consentimiento expreso para tratarla y te da derecho a acceder, corregir y eliminar tus datos.</p>
+      </section>
+
+      <section id="eliminar" aria-labelledby="eliminar-title">
+        <h2 id="eliminar-title">Cómo eliminar tus datos</h2>
+        <ol>
+          <li>Entra a <strong>Perfil</strong>.</li>
+          <li>Toca <strong>Eliminar mi cuenta y mis datos</strong>.</li>
+          <li>Confirma. Se borran tu historial, tus registros y tus agendas vinculadas.</li>
+        </ol>
+        <p>Si vinculaste Google Calendar u Outlook, puedes desconectarlos o eliminarlos en <strong>Horarios</strong> sin borrar el resto de tu información.</p>
+      </section>
+
+      <section id="cookies" aria-labelledby="cookies-title">
+        <h2 id="cookies-title">Cookies</h2>
+        <p>Esta página no usa cookies de seguimiento ni de publicidad. Solo carga las tipografías desde Google Fonts.</p>
+      </section>
+
+      <section id="terminos" aria-labelledby="terminos-title">
+        <h2 id="terminos-title">Términos de uso</h2>
+        <ul>
+          <li>Lumi te ayuda a organizarte, pero <strong>no da diagnósticos médicos</strong>. Ante dolor intenso, retrasos prolongados o cualquier duda sobre tu salud, consulta a un profesional.</li>
+          <li>Las predicciones son estimaciones basadas en tus registros y pueden variar.</li>
+          <li>El plan Premium se podrá cancelar en cualquier momento desde la tienda de aplicaciones.</li>
+        </ul>
+      </section>
+
+      <p><a class="button button--primary" href="index.html">Volver a Lumi</a></p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a class="logo" href="index.html#home" aria-label="Lumi, ir al inicio">
+            <img src="assets/images/logo-icon.svg" alt="" width="36" height="36">
+            <span class="logo__text logo__text--small">LUMI</span>
+          </a>
+          <p>Tu ciclo, tu tiempo, en un solo lugar.</p>
+        </div>
+        <nav aria-label="Producto">
+          <h2 class="footer__title">Producto</h2>
+          <ul>
+            <li><a href="index.html#features">Funciones</a></li>
+            <li><a href="index.html#try-lumi">Prueba Lumi</a></li>
+            <li><a href="index.html#pricing">Planes</a></li>
+          </ul>
+        </nav>
+        <nav aria-label="Legal">
+          <h2 class="footer__title">Legal</h2>
+          <ul>
+            <li><a href="privacy.html#privacidad">Privacidad</a></li>
+            <li><a href="privacy.html#terminos">Términos</a></li>
+            <li><a href="privacy.html#eliminar">Eliminar mis datos</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h2 class="footer__title">Contacto</h2>
+          <ul>
+            <li><a href="index.html#about-us">Equipo 6Bits</a></li>
+            <li><a href="https://github.com/LUMI-UPC/Lumi-landing-page">Código en GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer__copy">© 2026 6Bits · Lumi. Proyecto académico UPC – IHC y Tecnologías Móviles.</p>
+    </div>
+  </footer>
+
+  <script src="js/menu.js"></script>
+</body>
+
+</html>

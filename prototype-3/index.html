@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lumi: la app que une el seguimiento de tu ciclo menstrual con tu agenda diaria. Prueba la demo interactiva.">
+  <title>Lumi – Tu ciclo, tu tiempo, en un solo lugar</title>
+
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo-icon.svg">
+
+  <!-- Tipografías del Style Guide (Figma) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Delius&family=Libre+Baskerville&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/sections/header.css">
+  <link rel="stylesheet" href="css/sections/hero.css">
+  <link rel="stylesheet" href="css/sections/problem.css">
+  <link rel="stylesheet" href="css/sections/features.css">
+  <link rel="stylesheet" href="css/sections/how-it-works.css">
+  <link rel="stylesheet" href="css/sections/audience.css">
+  <link rel="stylesheet" href="css/sections/try-lumi.css">
+  <link rel="stylesheet" href="css/sections/pricing.css">
+  <link rel="stylesheet" href="css/sections/validation.css">
+  <link rel="stylesheet" href="css/sections/about-us.css">
+  <link rel="stylesheet" href="css/sections/faq.css">
+  <link rel="stylesheet" href="css/sections/footer.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+
+  <!-- Header y navegación -->
+  <header class="header">
+    <div class="container header__bar">
+      <a class="logo" href="#home" aria-label="Lumi, ir al inicio">
+        <img src="assets/images/logo-icon.svg" alt="" width="44" height="44">
+        <span class="logo__text">LUMI</span>
+      </a>
+
+      <button class="header__menu-button" type="button" aria-expanded="false" aria-controls="main-menu">
+        <span class="visually-hidden">Abrir menú</span>
+        <span class="header__menu-icon" aria-hidden="true"></span>
+      </button>
+
+      <nav class="header__nav" id="main-menu" aria-label="Menú principal">
+        <ul class="header__list">
+          <li><a href="#home">Inicio</a></li>
+          <li><a href="#features">Funciones</a></li>
+          <li><a href="#try-lumi">Prueba Lumi</a></li>
+          <li><a href="#pricing">Planes</a></li>
+          <li><a href="#validation">Validación</a></li>
+          <li><a href="#about-us">Nosotros</a></li>
+          <li><a href="#faq">Preguntas</a></li>
+        </ul>
+        <a class="button button--primary" href="app.html">Probar Lumi</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- Hero -->
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="container hero__grid">
+        <div>
+          <p class="eyebrow">Salud femenina y productividad</p>
+          <h1 class="hero__title" id="hero-title">Tu ciclo, tu tiempo, en un solo lugar</h1>
+          <p class="hero__description">
+            Lumi une el seguimiento de tu ciclo menstrual con tus clases, reuniones y tareas del hogar
+            para que planifiques cada semana según tu energía real.
+          </p>
+          <div class="hero__actions" id="download">
+            <a class="button button--primary hero__main-action" href="app.html">Probar Lumi ahora</a>
+            <span class="store-badge" aria-disabled="true">App Store <small>Próximamente</small></span>
+            <span class="store-badge" aria-disabled="true">Google Play <small>Próximamente</small></span>
+          </div>
+          <p class="hero__note">Funciona en tu celular: ábrela y agrégala a tu pantalla de inicio.</p>
+        </div>
+
+        <div class="phone" role="img" aria-label="Vista previa de la pantalla de inicio de Lumi">
+          <p class="phone__greeting">Hola, Sofía</p>
+          <div class="phone__block phone__block--lilac">
+            <span>Fase folicular · Día 9</span>
+            <strong>Energía alta</strong>
+          </div>
+          <div class="phone__block phone__block--pink">
+            <span>Hoy</span>
+            <strong>Clase de Cálculo · 8:00</strong>
+            <strong>Entrega de informe · 18:00</strong>
+          </div>
+          <div class="phone__block phone__block--yellow">
+            <span>Tu periodo llegaría en 19 días</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problema -->
+    <section class="section problem" id="problem" aria-labelledby="problem-title">
+      <div class="container">
+        <h2 class="section__title" id="problem-title">¿Te pasa que tu periodo llega justo el día de tu examen?</h2>
+        <p class="section__subtitle">
+          Lo que encontramos en nuestras entrevistas con universitarias, profesionales y madres de familia:
+        </p>
+        <div class="grid-3">
+          <article class="card">
+            <span class="problem__icon" aria-hidden="true"></span>
+            <h3>Apps separadas</h3>
+            <p>Usan una app para el ciclo y otra para su agenda, y ninguna se comunica.</p>
+          </article>
+          <article class="card">
+            <span class="problem__icon" aria-hidden="true"></span>
+            <h3>Imprevistos</h3>
+            <p>Los cólicos o la baja energía llegan el día de una actividad importante.</p>
+          </article>
+          <article class="card">
+            <span class="problem__icon" aria-hidden="true"></span>
+            <h3>Carga mental</h3>
+            <p>Recordar fechas y reorganizar todo genera estrés y baja productividad.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Funcionalidades -->
+    <section class="section section--white features" id="features" aria-labelledby="features-title">
+      <div class="container">
+        <h2 class="section__title" id="features-title">Todo lo que necesitas, en una sola app</h2>
+        <div class="grid-2">
+          <article class="card card--pink">
+            <svg class="features__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>
+            <h3>Calendario unificado</h3>
+            <p>Tu periodo estimado junto a tus clases, reuniones y tareas.</p>
+          </article>
+          <article class="card card--lilac">
+            <svg class="features__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10 21a2 2 0 0 0 4 0"/></svg>
+            <h3>Alertas predictivas</h3>
+            <p>Te avisamos cuando una actividad importante coincide con días de baja energía.</p>
+          </article>
+          <article class="card card--yellow">
+            <svg class="features__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg>
+            <h3>Reprogramación inteligente</h3>
+            <p>Lumi te sugiere mejores fechas para tus actividades críticas.</p>
+          </article>
+          <article class="card card--pink">
+            <svg class="features__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+            <h3>Privacidad total</h3>
+            <p>Bloqueo con PIN o huella, modo discreto y control de tus datos.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cómo funciona -->
+    <section class="section how-it-works" id="how-it-works" aria-labelledby="how-it-works-title">
+      <div class="container">
+        <h2 class="section__title" id="how-it-works-title">Cómo funciona</h2>
+        <ol class="grid-3">
+          <li class="card">
+            <span class="how-it-works__number" aria-hidden="true">1</span>
+            <h3>Registra tu ciclo</h3>
+            <p>Ingresa la fecha de tu último periodo y la duración de tu ciclo.</p>
+          </li>
+          <li class="card">
+            <span class="how-it-works__number" aria-hidden="true">2</span>
+            <h3>Conecta tu agenda</h3>
+            <p>Sincroniza Google Calendar u Outlook, o importa tu horario.</p>
+          </li>
+          <li class="card">
+            <span class="how-it-works__number" aria-hidden="true">3</span>
+            <h3>Recibe recomendaciones</h3>
+            <p>Lumi te avisa y te ayuda a planificar según tu energía.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Para quién es -->
+    <section class="section section--pink audience" id="audience" aria-labelledby="audience-title">
+      <div class="container">
+        <h2 class="section__title" id="audience-title">Pensada para ti</h2>
+        <div class="grid-3">
+          <article class="card">
+            <div class="audience__image" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg>
+            </div>
+            <h3>Universitarias</h3>
+            <p>Organiza exámenes y entregas según tu ciclo.</p>
+          </article>
+          <article class="card">
+            <div class="audience__image" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 12h18"/></svg>
+            </div>
+            <h3>Profesionales</h3>
+            <p>Planifica reuniones críticas en tus días de más energía.</p>
+          </article>
+          <article class="card">
+            <div class="audience__image" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg>
+            </div>
+            <h3>Madres de familia</h3>
+            <p>Coordina el hogar, las citas de tus hijos y tu bienestar.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Prueba Lumi: demo interactiva con 35 HU del core -->
+    <section class="section section--white try-lumi" id="try-lumi" aria-labelledby="try-lumi-title">
+      <div class="container">
+        <div class="try-lumi__intro">
+          <p class="eyebrow">Demo interactiva</p>
+          <h2 class="section__title" id="try-lumi-title">Prueba Lumi ahora</h2>
+          <p><a class="button button--primary" href="app.html">Abrir la app a pantalla completa</a></p>
+          <p class="section__subtitle">
+            Usa la app desde aquí: registra tu ciclo, agrega actividades, recibe alertas y cuida tu bienestar.
+            Puedes simular el paso de los días con los botones de arriba. Los datos se borran al recargar la página.
+          </p>
+        </div>
+
+        <details class="try-lumi__stories">
+          <summary>Ver las 35 historias de usuario que puedes probar</summary>
+          <div class="try-lumi__table-wrap">
+            <table class="try-lumi__table">
+              <caption class="visually-hidden">Historias de usuario implementadas en la demo</caption>
+              <thead>
+                <tr><th scope="col">HU</th><th scope="col">Título</th><th scope="col">Dónde probarla</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>US-44</td><td>Calendario unificado de ciclo y actividades</td><td>Calendario</td></tr>
+                <tr><td>US-45</td><td>Fases del ciclo y nivel de energía</td><td>Inicio</td></tr>
+                <tr><td>US-11</td><td>Registro de inicio y fin del periodo</td><td>Calendario → Registrar</td></tr>
+                <tr><td>US-03</td><td>Configuración de fechas iniciales del ciclo</td><td>Bienvenida · Perfil → Editar</td></tr>
+                <tr><td>US-46</td><td>Alerta predictiva en días de baja energía</td><td>Inicio</td></tr>
+                <tr><td>US-47</td><td>Sugerencia de reprogramación</td><td>Inicio → Mover</td></tr>
+                <tr><td>US-48</td><td>Recordatorios combinados de ciclo y actividades</td><td>Calendario → Agregar · Inicio</td></tr>
+                <tr><td>US-19</td><td>Sincronización con Google Calendar u Outlook</td><td>Horarios</td></tr>
+                <tr><td>US-21</td><td>Creación de eventos y tareas</td><td>Calendario → Agregar</td></tr>
+                <tr><td>US-50</td><td>Tareas del hogar y citas familiares</td><td>Calendario → Tipo</td></tr>
+                <tr><td>US-12</td><td>Registro de síntomas</td><td>Calendario → Registrar</td></tr>
+                <tr><td>US-17</td><td>Registro del flujo menstrual</td><td>Calendario → Registrar</td></tr>
+                <tr><td>US-18</td><td>Registro del estado de ánimo</td><td>Calendario → Registrar · Bienestar</td></tr>
+                <tr><td>US-14</td><td>Ajuste automático por irregularidad</td><td>Inicio</td></tr>
+                <tr><td>US-16</td><td>Alerta de retraso del periodo</td><td>Inicio (avanza +7 días tres veces)</td></tr>
+                <tr><td>US-13</td><td>Historial de ciclos anteriores</td><td>Perfil</td></tr>
+                <tr><td>US-49</td><td>Reporte de patrones</td><td>Perfil</td></tr>
+                <tr><td>US-22</td><td>Nivel de importancia de compromisos</td><td>Calendario → Agregar</td></tr>
+                <tr><td>US-20</td><td>Importación de horario por CSV</td><td>Horarios</td></tr>
+                <tr><td>US-23</td><td>Clasificación de reuniones laborales</td><td>Horarios · Calendario</td></tr>
+                <tr><td>US-01</td><td>Perfil según estilo de vida</td><td>Bienvenida · Perfil</td></tr>
+                <tr><td>US-05</td><td>Objetivos personales</td><td>Bienvenida · Perfil</td></tr>
+                <tr><td>US-15</td><td>Registro de medicamentos y anticonceptivos</td><td>Calendario → Registrar · Perfil → Reporte</td></tr>
+                <tr><td>US-35</td><td>Autocuidado según el ánimo</td><td>Bienestar</td></tr>
+                <tr><td>US-36</td><td>Refrigerios energéticos</td><td>Bienestar</td></tr>
+                <tr><td>US-37</td><td>Recordatorio de agua</td><td>Bienestar</td></tr>
+                <tr><td>US-38</td><td>Resumen semanal de hidratación y nutrición</td><td>Bienestar</td></tr>
+                <tr><td>US-26</td><td>Modo discreto</td><td>Barra superior · Perfil</td></tr>
+                <tr><td>US-25</td><td>Bloqueo con PIN o huella</td><td>Perfil → Crear PIN → Bloquear</td></tr>
+                <tr><td>US-24</td><td>Desconexión o eliminación de agendas</td><td>Horarios</td></tr>
+                <tr><td>US-30</td><td>Catálogo de hábitos sugeridos</td><td>Bienestar</td></tr>
+                <tr><td>US-31</td><td>Racha de días consecutivos</td><td>Bienestar</td></tr>
+                <tr><td>US-32</td><td>Hábitos por momento del día</td><td>Bienestar</td></tr>
+                <tr><td>US-33</td><td>Pausa temporal de un hábito</td><td>Bienestar</td></tr>
+                <tr><td>US-34</td><td>Archivo de hábitos</td><td>Bienestar</td></tr>
+                <tr><td>US-06</td><td>Tutorial interactivo</td><td>Bienvenida (paso 4)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <div class="app" id="app" aria-label="Demo interactiva de la app Lumi">
+          <div class="app__topbar"></div>
+
+          <div class="app__welcome">
+            <img src="assets/images/logo-icon.svg" alt="" width="72" height="72">
+            <h3>Bienvenida a Lumi</h3>
+            <p>Configura tu perfil y tu ciclo en 4 pasos, o explora la app con los datos de ejemplo de Sofía.</p>
+            <div class="hero__actions">
+              <button type="button" class="button button--primary" data-action="start">Configurar mi Lumi</button>
+              <button type="button" class="button button--outline" data-action="sample">Usar datos de ejemplo</button>
+            </div>
+          </div>
+
+          <div class="app__layout">
+            <div class="app__tabs" role="tablist" aria-label="Secciones de la app">
+              <button type="button" class="app__tab" role="tab" id="app-tab-home" aria-controls="app-panel-home" data-tab="home">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>
+                Inicio
+              </button>
+              <button type="button" class="app__tab" role="tab" id="app-tab-calendar" aria-controls="app-panel-calendar" data-tab="calendar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>
+                Calendario
+              </button>
+              <button type="button" class="app__tab" role="tab" id="app-tab-schedule" aria-controls="app-panel-schedule" data-tab="schedule">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+                Horarios
+              </button>
+              <button type="button" class="app__tab" role="tab" id="app-tab-wellness" aria-controls="app-panel-wellness" data-tab="wellness">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-8-5-8-11a5 5 0 0 1 8-4 5 5 0 0 1 8 4c0 6-8 11-8 11z"/></svg>
+                Bienestar
+              </button>
+              <button type="button" class="app__tab" role="tab" id="app-tab-profile" aria-controls="app-panel-profile" data-tab="profile">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg>
+                Perfil
+              </button>
+            </div>
+
+            <div class="app__body">
+              <div class="app__panel" role="tabpanel" id="app-panel-home" aria-labelledby="app-tab-home"></div>
+              <div class="app__panel" role="tabpanel" id="app-panel-calendar" aria-labelledby="app-tab-calendar"></div>
+              <div class="app__panel" role="tabpanel" id="app-panel-schedule" aria-labelledby="app-tab-schedule"></div>
+              <div class="app__panel" role="tabpanel" id="app-panel-wellness" aria-labelledby="app-tab-wellness"></div>
+              <div class="app__panel" role="tabpanel" id="app-panel-profile" aria-labelledby="app-tab-profile"></div>
+            </div>
+          </div>
+
+          <div class="app__overlay" hidden></div>
+          <div class="app__toast" role="status" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Planes -->
+    <section class="section pricing" id="pricing" aria-labelledby="pricing-title">
+      <div class="container">
+        <h2 class="section__title" id="pricing-title">Elige tu plan</h2>
+        <div class="grid-2">
+          <article class="card plan">
+            <h3 class="plan__name">Free</h3>
+            <p class="plan__price">S/ 0</p>
+            <ul class="plan__list">
+              <li>Calendario unificado</li>
+              <li>Registro de ciclo y síntomas</li>
+              <li>Recordatorios básicos</li>
+            </ul>
+            <a class="button button--outline" href="app.html">Empezar gratis</a>
+          </article>
+          <article class="card card--pink plan">
+            <h3 class="plan__name">Premium</h3>
+            <p class="plan__price">S/ 9.90 <span>/ mes</span></p>
+            <ul class="plan__list">
+              <li>Todo lo de Free</li>
+              <li>Alertas predictivas y reprogramación</li>
+              <li>Reportes de patrones</li>
+              <li>Sin anuncios</li>
+            </ul>
+            <a class="button button--primary" href="app.html">Probar Premium</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Validación con usuarias -->
+    <section class="section section--white validation" id="validation" aria-labelledby="validation-title">
+      <div class="container">
+        <h2 class="section__title" id="validation-title">Estamos validando Lumi con usuarias reales</h2>
+        <p class="section__subtitle">
+          Entrevistamos a universitarias, profesionales y madres de familia mientras usan Lumi en su celular.
+          Sus comentarios definen la próxima versión.
+        </p>
+        <div class="grid-3">
+          <article class="card validation__step">
+            <span class="how-it-works__number" aria-hidden="true">1</span>
+            <h3>Usan la app</h3>
+            <p>Cada participante resuelve 4 tareas reales: configurar Lumi, registrar su periodo y organizar su semana.</p>
+          </article>
+          <article class="card validation__step">
+            <span class="how-it-works__number" aria-hidden="true">2</span>
+            <h3>Medimos</h3>
+            <p>Registramos si completó cada tarea, cuánto tardó y qué tan fácil le pareció, del 1 al 5.</p>
+          </article>
+          <article class="card validation__step">
+            <span class="how-it-works__number" aria-hidden="true">3</span>
+            <h3>Mejoramos</h3>
+            <p>Cada problema se clasifica con las heurísticas de Nielsen y se corrige en la siguiente versión.</p>
+          </article>
+        </div>
+        <p class="validation__cta"><a class="button button--primary" href="app.html#entrevista">Abrir el modo entrevista</a></p>
+      </div>
+    </section>
+
+    <!-- Nosotros: equipo 6Bits y video About-the-Team -->
+    <section class="section about-us" id="about-us" aria-labelledby="about-us-title">
+      <div class="container">
+        <h2 class="section__title" id="about-us-title">Somos 6Bits</h2>
+        <p class="section__subtitle">
+          Estudiantes de Ingeniería de Software e Ingeniería de Sistemas de Información de la UPC que queremos
+          que ninguna mujer tenga que elegir entre su salud y sus metas.
+        </p>
+
+        <div class="about-us__grid">
+          <div class="about-us__text">
+            <h3>Misión</h3>
+            <p>Ayudar a las mujeres a organizar su vida diaria tomando en cuenta su ciclo menstrual.</p>
+            <h3>Visión</h3>
+            <p>Ser la app de referencia en Latinoamérica que une salud femenina y productividad.</p>
+          </div>
+          <div class="about-us__text">
+            <h3>Nuestro compromiso</h3>
+            <p>Tu información de salud es tuya: la protegemos, no la vendemos y puedes borrarla cuando quieras. <a href="privacy.html">Lee cómo cuidamos tus datos</a>.</p>
+          </div>
+        </div>
+
+        <ul class="team">
+          <li class="card team__member"><span class="team__avatar" aria-hidden="true">CA</span><p class="team__name">Cielo Atencio</p><p class="team__role">Team Leader · Ing. de Software</p></li>
+          <li class="card team__member"><span class="team__avatar" aria-hidden="true">DD</span><p class="team__name">Diego Davalos</p><p class="team__role">Ing. de Software</p></li>
+          <li class="card team__member"><span class="team__avatar" aria-hidden="true">CA</span><p class="team__name">Carlos Apaza</p><p class="team__role">Ing. de Software</p></li>
+          <li class="card team__member"><span class="team__avatar" aria-hidden="true">JL</span><p class="team__name">Jesús López</p><p class="team__role">Ing. de Software</p></li>
+          <li class="card team__member"><span class="team__avatar" aria-hidden="true">JC</span><p class="team__name">Jose Collantes</p><p class="team__role">Ing. de Sistemas de Información</p></li>
+          <li class="card team__member"><span class="team__avatar" aria-hidden="true">RR</span><p class="team__name">Renato Ramirez</p><p class="team__role">Ing. de Sistemas de Información</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Preguntas frecuentes -->
+    <section class="section faq" id="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <h2 class="section__title" id="faq-title">Preguntas frecuentes</h2>
+
+        <div class="faq__item">
+          <h3>
+            <button class="faq__question" type="button" aria-expanded="true" aria-controls="faq-1">¿Mis datos de salud están seguros?</button>
+          </h3>
+          <div class="faq__answer" id="faq-1">
+            <p>Sí. Tus datos se guardan cifrados, puedes proteger la app con PIN o huella, usar el modo discreto y eliminar tu cuenta cuando quieras. <a href="privacy.html">Lee nuestra política de privacidad</a>.</p>
+          </div>
+        </div>
+        <div class="faq__item">
+          <h3>
+            <button class="faq__question" type="button" aria-expanded="false" aria-controls="faq-2">¿Puedo conectar mi calendario de la universidad o del trabajo?</button>
+          </h3>
+          <div class="faq__answer" id="faq-2" hidden>
+            <p>Sí. Puedes vincular Google Calendar u Outlook, o importar tu horario de clases desde un archivo CSV.</p>
+          </div>
+        </div>
+        <div class="faq__item">
+          <h3>
+            <button class="faq__question" type="button" aria-expanded="false" aria-controls="faq-3">¿Qué pasa si mi ciclo es irregular?</button>
+          </h3>
+          <div class="faq__answer" id="faq-3" hidden>
+            <p>Lumi aprende de tus registros y ajusta la predicción a tu promedio real. Si tu periodo se retrasa, te avisa.</p>
+          </div>
+        </div>
+        <div class="faq__item">
+          <h3>
+            <button class="faq__question" type="button" aria-expanded="false" aria-controls="faq-4">¿Lumi reemplaza a un médico?</button>
+          </h3>
+          <div class="faq__answer" id="faq-4" hidden>
+            <p>No. Lumi te ayuda a organizarte, pero no da diagnósticos. Ante cualquier molestia o retraso prolongado, consulta a un profesional de salud.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a class="logo" href="#home" aria-label="Lumi, ir al inicio">
+            <img src="assets/images/logo-icon.svg" alt="" width="36" height="36">
+            <span class="logo__text logo__text--small">LUMI</span>
+          </a>
+          <p>Tu ciclo, tu tiempo, en un solo lugar.</p>
+        </div>
+        <nav aria-label="Producto">
+          <h2 class="footer__title">Producto</h2>
+          <ul>
+            <li><a href="#features">Funciones</a></li>
+            <li><a href="#try-lumi">Prueba Lumi</a></li>
+            <li><a href="#pricing">Planes</a></li>
+          </ul>
+        </nav>
+        <nav aria-label="Legal">
+          <h2 class="footer__title">Legal</h2>
+          <ul>
+            <li><a href="privacy.html#privacidad">Privacidad</a></li>
+            <li><a href="privacy.html#terminos">Términos</a></li>
+            <li><a href="privacy.html#eliminar">Eliminar mis datos</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h2 class="footer__title">Contacto</h2>
+          <ul>
+            <li><a href="#about-us">Equipo 6Bits</a></li>
+            <li><a href="https://github.com/LUMI-UPC/Lumi-landing-page">Código en GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer__copy">© 2026 6Bits · Lumi. Proyecto académico UPC – IHC y Tecnologías Móviles.</p>
+    </div>
+  </footer>
+
+  <script src="js/menu.js"></script>
+  <script src="js/faq.js"></script>
+  <script src="js/try-lumi.js"></script>
+</body>
+
+</html>

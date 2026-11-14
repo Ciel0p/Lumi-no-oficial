@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Lumi: prueba la app que une tu ciclo menstrual con tu agenda diaria.">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Lumi">
+  <title>Lumi – App</title>
+
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo-icon.svg">
+  <link rel="apple-touch-icon" href="assets/images/logo-icon-192.png">
+  <link rel="manifest" href="manifest.webmanifest">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Delius&family=Libre+Baskerville&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/sections/try-lumi.css">
+  <link rel="stylesheet" href="css/sections/interview.css">
+</head>
+
+<body class="app-page">
+  <!-- Modo entrevista de validación -->
+  <div id="interview"></div>
+
+  <main id="main-content">
+    <h1 class="visually-hidden">Lumi</h1>
+  <div class="app" id="app" aria-label="Demo interactiva de la app Lumi">
+    <div class="app__topbar"></div>
+
+    <div class="app__welcome">
+      <img src="assets/images/logo-icon.svg" alt="" width="72" height="72">
+      <h3>Bienvenida a Lumi</h3>
+      <p>Configura tu perfil y tu ciclo en 4 pasos, o explora la app con los datos de ejemplo de Sofía.</p>
+      <p><a href="index.html">Conocer más sobre Lumi</a></p>
+      <div class="hero__actions">
+        <button type="button" class="button button--primary" data-action="start">Configurar mi Lumi</button>
+        <button type="button" class="button button--outline" data-action="sample">Usar datos de ejemplo</button>
+      </div>
+    </div>
+
+    <div class="app__layout">
+      <div class="app__tabs" role="tablist" aria-label="Secciones de la app">
+        <button type="button" class="app__tab" role="tab" id="app-tab-home" aria-controls="app-panel-home" data-tab="home">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>
+          Inicio
+        </button>
+        <button type="button" class="app__tab" role="tab" id="app-tab-calendar" aria-controls="app-panel-calendar" data-tab="calendar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>
+          Calendario
+        </button>
+        <button type="button" class="app__tab" role="tab" id="app-tab-schedule" aria-controls="app-panel-schedule" data-tab="schedule">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          Horarios
+        </button>
+        <button type="button" class="app__tab" role="tab" id="app-tab-wellness" aria-controls="app-panel-wellness" data-tab="wellness">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-8-5-8-11a5 5 0 0 1 8-4 5 5 0 0 1 8 4c0 6-8 11-8 11z"/></svg>
+          Bienestar
+        </button>
+        <button type="button" class="app__tab" role="tab" id="app-tab-profile" aria-controls="app-panel-profile" data-tab="profile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg>
+          Perfil
+        </button>
+      </div>
+
+      <div class="app__body">
+        <div class="app__panel" role="tabpanel" id="app-panel-home" aria-labelledby="app-tab-home"></div>
+        <div class="app__panel" role="tabpanel" id="app-panel-calendar" aria-labelledby="app-tab-calendar"></div>
+        <div class="app__panel" role="tabpanel" id="app-panel-schedule" aria-labelledby="app-tab-schedule"></div>
+        <div class="app__panel" role="tabpanel" id="app-panel-wellness" aria-labelledby="app-tab-wellness"></div>
+        <div class="app__panel" role="tabpanel" id="app-panel-profile" aria-labelledby="app-tab-profile"></div>
+      </div>
+    </div>
+
+    <div class="app__overlay" hidden></div>
+    <div class="app__toast" role="status" aria-live="polite"></div>
+  </div>
+</div>
+  </main>
+
+  <script src="js/try-lumi.js"></script>
+  <script src="js/interview.js"></script>
+</body>
+
+</html>

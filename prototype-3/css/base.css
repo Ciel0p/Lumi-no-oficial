@@ -1,0 +1,121 @@
+/* =====================================================
+   BASE · colores, tipografía y piezas compartidas
+   Valores tomados del Style Guide de Lumi en Figma.
+   Nomenclatura en inglés (BEM): bloque__elemento--modificador
+   ===================================================== */
+:root {
+  --color-background: #fff8f8;
+  --color-background-pink: #fff0f2;
+  --color-white: #ffffff;
+  --color-primary: #e8758a;
+  --color-accent: #c2185b;   /* más oscuro que #d63f7a: contraste AA con blanco */
+  --color-pink: #fbd3da;
+  --color-lilac: #eadcf8;
+  --color-yellow: #fff3cf;
+  --color-text: #4a3f45;
+  --color-text-secondary: #776b71; /* más oscuro que #8e8288 para cumplir contraste AA */
+  --color-border: #f3d9de;
+  --font-body: "Delius", "Segoe UI", sans-serif;
+  --font-logo: "Libre Baskerville", Georgia, serif;
+  --radius: 20px;
+  --max-width: 1200px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-background);
+  line-height: 1.5;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+h1, h2, h3 { font-weight: 400; line-height: 1.2; margin: 0 0 12px; }
+p { margin: 0 0 12px; }
+
+.container { width: 100%; max-width: var(--max-width); margin: 0 auto; padding: 0 16px; }
+
+/* Secciones */
+.section { padding: 64px 0; }
+.section--white { background: var(--color-white); }
+.section--pink { background: var(--color-background-pink); }
+.section__title { font-size: clamp(1.75rem, 4vw, 2.5rem); text-align: center; margin-bottom: 16px; }
+.section__subtitle { text-align: center; color: var(--color-text-secondary); font-size: 1.1rem; max-width: 720px; margin: 0 auto 32px; }
+
+/* Rejillas: 1 columna en celular, más columnas en pantallas grandes */
+.grid-2, .grid-3 { display: grid; gap: 24px; grid-template-columns: 1fr; list-style: none; padding: 0; margin: 0; }
+@media (min-width: 768px) {
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Tarjetas */
+.card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin: 0;
+}
+.card h3 { font-size: 1.375rem; }
+.card p { color: var(--color-text-secondary); }
+.card--pink { background: var(--color-pink); }
+.card--lilac { background: var(--color-lilac); }
+.card--yellow { background: var(--color-yellow); }
+.card--pink p, .card--lilac p, .card--yellow p { color: var(--color-text); }
+
+/* Botones */
+.button {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 48px; padding: 0 24px; border-radius: 28px;
+  font-family: var(--font-body); font-size: 1rem; text-decoration: none; cursor: pointer;
+  border: 1px solid transparent; transition: background 0.2s ease;
+}
+.button--primary { background: var(--color-accent); color: var(--color-white); }
+.button--primary:hover { background: #9c1b47; }
+.button--dark { background: var(--color-text); color: var(--color-white); }
+.button--dark:hover { background: #2f282c; }
+.button--outline { border-color: var(--color-primary); color: var(--color-accent); background: transparent; }
+.button--outline:hover { background: var(--color-pink); }
+
+.eyebrow { color: var(--color-accent); font-size: 1rem; }
+
+/* Logo */
+.logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+.logo__text { font-family: var(--font-logo); color: var(--color-primary); font-size: 1.9rem; letter-spacing: 2px; }
+.logo__text--small { font-size: 1.5rem; }
+
+/* Accesibilidad */
+a:focus-visible, button:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 3px; }
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+.skip-link { position: absolute; left: 16px; top: -60px; background: var(--color-text); color: var(--color-white); padding: 8px 16px; border-radius: 8px; z-index: 100; }
+.skip-link:focus { top: 8px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+
+/* Formularios compartidos */
+.field { display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px; }
+.field label, .field legend { font-size: 0.9rem; }
+.input, .select, .textarea {
+  width: 100%; min-height: 44px; padding: 8px 12px; border: 1px solid var(--color-border);
+  border-radius: 12px; font: inherit; color: var(--color-text); background: var(--color-white);
+}
+.textarea { min-height: 96px; resize: vertical; }
+.input:focus-visible, .select:focus-visible, .textarea:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }
+
+/* Etiquetas pequeñas */
+.badge { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 0.875rem; background: var(--color-lilac); color: var(--color-text); }
+.badge--high { background: #ffd6de; color: #9c1b47; }
+.badge--medium { background: var(--color-yellow); }
+.badge--low { background: #e3f4ea; color: #1f6b43; }

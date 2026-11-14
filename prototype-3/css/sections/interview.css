@@ -1,0 +1,67 @@
+/* Modo entrevista de validación */
+.iv-bar {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px;
+  padding: 10px 16px; background: var(--color-text); color: var(--color-white);
+  position: sticky; top: 0; z-index: 20;
+}
+.iv-bar { padding-top: max(10px, env(safe-area-inset-top)); }
+.iv-bar--idle { flex-wrap: nowrap; padding-bottom: 8px; }
+.iv-bar--idle .iv-bar__actions { flex-wrap: nowrap; }
+.iv-bar__title { font-size: 0.95rem; }
+@media (max-width: 380px) { .iv-bar__title { display: none; } .iv-bar--idle { justify-content: flex-end; } }
+.iv-bar__actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.iv-bar .button--outline { color: var(--color-white); border-color: rgba(255, 255, 255, 0.6); }
+.iv-bar .button--outline:hover { background: rgba(255, 255, 255, 0.12); }
+.iv-bar--active { background: #2f282c; }
+.iv-task { flex: 1 1 260px; min-width: 0; }
+.iv-task__meta { margin: 0; font-size: 0.875rem; opacity: 0.85; }
+.iv-task__text { margin: 2px 0 0; font-size: 1.05rem; line-height: 1.35; }
+.iv-timer { font-variant-numeric: tabular-nums; }
+
+.iv-open { overflow: hidden; }
+.iv-sheet {
+  position: fixed; inset: 0; z-index: 100; background: rgba(74, 63, 69, 0.55);
+  display: flex; align-items: flex-end; justify-content: center;
+}
+.iv-sheet__box {
+  width: 100%; max-width: 640px; max-height: 92vh; max-height: 92dvh; overflow-y: auto;
+  background: var(--color-white); border-radius: 24px 24px 0 0; padding: 20px 16px calc(20px + env(safe-area-inset-bottom));
+}
+@media (min-width: 700px) {
+  .iv-sheet { align-items: center; }
+  .iv-sheet__box { border-radius: 24px; padding: 24px; }
+}
+.iv-sheet__title { color: var(--color-accent); font-size: 1.4rem; margin: 0 0 12px; }
+.iv-help { color: var(--color-text-secondary); margin: 0 0 12px; }
+.iv-message { color: var(--color-accent); min-height: 1.2em; margin: 8px 0; }
+.iv-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.iv-sheet fieldset { border: none; padding: 0; margin: 0 0 14px; }
+.iv-sheet legend { padding: 0; margin-bottom: 6px; }
+.iv-consent { display: flex; gap: 10px; align-items: flex-start; margin: 8px 0; }
+.iv-check { width: 24px; height: 24px; margin-top: 2px; accent-color: var(--color-accent); flex-shrink: 0; }
+
+/* Botones grandes para responder rápido con el pulgar */
+.iv-choice { display: flex; flex-wrap: wrap; gap: 8px; }
+.iv-choice__btn {
+  flex: 1 1 0; min-width: 52px; min-height: 52px; padding: 8px 12px; border-radius: 14px;
+  border: 2px solid var(--color-border); background: var(--color-white); color: var(--color-text);
+  font: inherit; font-size: 1rem; cursor: pointer;
+}
+.iv-choice__btn.is-selected { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-white); font-weight: bold; }
+.iv-choice__btn:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }
+.iv-nps .iv-choice__btn { min-width: 44px; flex: 1 1 44px; padding: 8px 4px; }
+.iv-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.iv-details summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; }
+.iv-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+.iv-actions .button { flex: 1 1 160px; }
+
+.iv-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; }
+.iv-stats div { background: var(--color-background); border-radius: 12px; padding: 10px; display: flex; flex-direction: column; text-align: center; }
+.iv-stats strong { color: var(--color-accent); font-size: 1.4rem; }
+.iv-stats span { font-size: 0.875rem; color: var(--color-text-secondary); }
+.iv-pre { white-space: pre-wrap; font-family: inherit; font-size: 0.875rem; background: var(--color-background); border-radius: 12px; padding: 12px; max-height: 40vh; overflow-y: auto; }
+.iv-list { list-style: none; padding: 0; margin: 0 0 12px; }
+.iv-list li { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 8px 0; border-bottom: 1px solid var(--color-border); }
+
+/* Mientras la usuaria hace la tarea, el texto ocupa dos líneas (se toca para verlo completo) */
+.iv-task__text.is-clamped { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; cursor: pointer; }

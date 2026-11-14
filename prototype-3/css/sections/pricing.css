@@ -1,0 +1,9 @@
+/* Planes */
+.pricing .grid-2 { max-width: 880px; margin: 0 auto; }
+.plan { display: flex; flex-direction: column; gap: 8px; }
+.plan__name { font-size: 1.5rem; margin: 0; }
+.plan__price { color: var(--color-accent); font-size: 2.25rem; margin: 0; }
+.plan__price span { font-size: 1.1rem; }
+.plan__list { padding-left: 20px; margin: 4px 0 16px; flex-grow: 1; }
+.plan__list li { margin-bottom: 6px; }
+.plan .button { align-self: flex-start; }
