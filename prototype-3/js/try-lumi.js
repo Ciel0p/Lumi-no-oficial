@@ -1097,7 +1097,7 @@
     var back = h('button', { type: 'button', class: 'button button--outline', onclick: function () { state.ui.onboardingStep--; render(); }, text: 'Atrás' });
 
     if (step === 1) {
-      box.appendChild(h('h4', { id: 'onboarding-title', text: '¿Cuál es tu estilo de vida? (US-01)' }));
+      box.appendChild(h('h4', { id: 'onboarding-title', text: '¿Cuál es tu estilo de vida?' }));
       var name = h('input', { class: 'input', type: 'text', value: draft.name, maxlength: '20' });
       box.appendChild(labeledInput('¿Cómo te llamamos?', name));
       var seg = h('fieldset', { class: 'field' }, h('legend', { text: 'Así adaptamos las sugerencias a tu rutina' }),
@@ -1109,7 +1109,7 @@
         next();
       }, text: 'Continuar' })));
     } else if (step === 2) {
-      box.appendChild(h('h4', { id: 'onboarding-title', text: 'Tu ' + t('cycle') + ' (US-03)' }));
+      box.appendChild(h('h4', { id: 'onboarding-title', text: 'Tu ' + t('cycle') + '' }));
       var last = h('input', { class: 'input', type: 'date', value: draft.lastStart, max: toKey(state.today) });
       var len = h('input', { class: 'input', type: 'number', min: '21', max: '40', value: String(draft.length) });
       box.appendChild(labeledInput('Fecha de tu última menstruación', last));
@@ -1125,7 +1125,7 @@
         next();
       }, text: 'Continuar' })));
     } else if (step === 3) {
-      box.appendChild(h('h4', { id: 'onboarding-title', text: '¿Qué quieres lograr? (US-05)' }));
+      box.appendChild(h('h4', { id: 'onboarding-title', text: '¿Qué quieres lograr?' }));
       var goals = h('fieldset', { class: 'field' }, h('legend', { text: 'Elige uno o más objetivos' }),
         chips('goals', Object.keys(GOALS).map(function (k) { return [k, GOALS[k]]; }), draft.goals, 'checkbox'));
       box.appendChild(goals);
@@ -1137,7 +1137,7 @@
         next();
       }, text: 'Continuar' })));
     } else {
-      box.appendChild(h('h4', { id: 'onboarding-title', text: 'Así funciona Lumi (US-06)' }));
+      box.appendChild(h('h4', { id: 'onboarding-title', text: 'Así funciona Lumi' }));
       box.appendChild(h('ol', { class: 'app-tutorial' },
         h('li', {}, h('strong', { text: 'Inicio: ' }), 'mira tu fase, tu energía y las alertas del día.'),
         h('li', {}, h('strong', { text: 'Calendario: ' }), 'tu ' + t('cycle') + ' y tus actividades en un solo lugar; registra cómo te sientes.'),
